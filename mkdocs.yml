@@ -20,4 +20,5 @@ markdown_extensions: [
   'markdown_include.include',
   'showable',
   'markdown.extensions.fenced_code',
+  'environment',
 ]

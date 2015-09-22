@@ -1,9 +1,18 @@
 <style src="../../includes/media/tute.css" ></style>
 <style>em {font-style: normal; font-family: courier new;}</style>
 
+
 # Introduction to Unix
 
 A hands-on-workshop covering the basics of the Unix/Linux command line interface
+
+\if{UNIX_INTRO}
+
+{!docs/tutorials/unix/intro.md!}
+
+\endif
+
+\if{UNIX_HOWTO}
 
 ## How to use this workshop
 
@@ -68,7 +77,7 @@ This workshop attempts to cater for two usage styles:
 	  same (or similar) answers.
 	* Its a good idea to read the hints and answer description as they often contain extra useful information.
 
-
+\endif
 
 
 
@@ -1743,7 +1752,21 @@ $ less sample_1.fastq.nl
 
 ---
 
-\showable+{5.6) The four-lines-per-read format of FASTQ is cumbersome to deal with. Often it would be 
+\showable{5.6) Use the *cat* command to print the contents of *file01* to screen}{question}\endshowable
+
+\showable{Answer}{answer}
+
+The *cat* command (short for concatenate takes one or more files and outputs their contents (one after the next).
+
+```sh
+$ cat file01
+```
+
+\endshowable
+
+---
+
+\showable+{5.7) The four-lines-per-read format of FASTQ is cumbersome to deal with. Often it would be 
 preferable if we could convert it to tab-separated-value (TSV) format, such that each read appears 
 on a single line with each of its fields separated by tabs. Use the following command to convert 
 sample_1.fastq.nl into TSV format:}{question}
@@ -1756,7 +1779,7 @@ $ cat sample_1.fastq | paste - - - - > sample_1.tsv
 \showable{Answer}{answer}
 
 The *'-'* (dash) character has a special meaning when used in place of a file; it means use the standard
-input instead of a real file.  Note: while it is fairly common in most Unix programs, not all wil support it.
+input instead of a real file.  Note: while it is fairly common in most Unix programs, not all will support it.
 
 The *paste* command is useful for merging multiple files together line-by-line, such that the *Nth* 
 line from each file is joined together into one line in the output, separated by default with a 
@@ -1767,7 +1790,7 @@ which causes it to join consecutive groups of 4 lines from the file into one lin
 
 ---
 
-\showable+{5.7) Do you expect the output of the following command to produce the same output as above? and why?}{question}
+\showable+{5.8) Do you expect the output of the following command to produce the same output as above? and why?}{question}
 
 ```sh
 $ paste sample_1.fastq sample_1.fastq sample_1.fastq sample_1.fastq > sample_1b.tsv
@@ -1796,7 +1819,7 @@ side point.
 
 ---
 
-\showable{5.8) Check that *sample_1.tsv* has the correct number of lines. Use the *head* command to view 
+\showable{5.9) Check that *sample_1.tsv* has the correct number of lines. Use the *head* command to view 
 the first *20* lines of the file.}{question}\endshowable
 
 \showable{Hint}{hint}
@@ -1825,7 +1848,7 @@ $ head -20 sample_1.tsv
 
 ---
 
-\showable{5.9) Use the *cut* command to print out the second column of *sample_1.tsv*. Redirect the 
+\showable{5.10) Use the *cut* command to print out the second column of *sample_1.tsv*. Redirect the 
 output to a file called *sample_1.dna.txt*.}{question}\endshowable
 
 \showable{Hint}{hint}
@@ -1850,7 +1873,7 @@ Check that the output file looks reasonable using *head* or *less*.
 
 ---
 
-\showable{5.10) Use the *sort* command to sort the lines of *sample_1.dna.txt* and redirect the output to 
+\showable{5.11) Use the *sort* command to sort the lines of *sample_1.dna.txt* and redirect the output to 
 *sample_1.dna.sorted.txt*. Use *head* to look at the first few lines of the output file. You should 
 see a lot of repeated sequences of As.}{question}\endshowable
 
@@ -1873,7 +1896,7 @@ file.
 
 ---
 
-\showable{5.11) Use the *uniq* command to remove duplicate consecutive lines from *sample_1.dna.sorted.txt*, 
+\showable{5.12) Use the *uniq* command to remove duplicate consecutive lines from *sample_1.dna.sorted.txt*, 
 redirect the result to *sample_1.dna.uniq.txt*. Compare the number of lines in sample1_dna.txt to 
 the number of lines in *sample_1.dna.uniq.txt*.}{question}\endshowable
 
@@ -1906,7 +1929,7 @@ removed.
 
 ---
 
-\showable{5.12) Can you modify the command from above to produce *only* those sequences of DNA which were 
+\showable{5.13) Can you modify the command from above to produce *only* those sequences of DNA which were 
 duplicated in *sample_1.dna.sorted.txt*?}{question}\endshowable
 
 \showable{Hint}{hint}
@@ -1933,7 +1956,7 @@ $ uniq -d sample_1.dna.sorted.txt > sample_1.dna.dup.txt
 
 ---
 
-\showable{5.13) Write a *shell pipeline* which will print the number of duplicated DNA sequences in 
+\showable{5.14) Write a *shell pipeline* which will print the number of duplicated DNA sequences in 
 sample_1.fastq.}{question}\endshowable
 
 \showable{Hint}{hint}
@@ -1965,7 +1988,7 @@ The output file should have *56079* lines.
 
 ---
 
-\showable{5.14) (Advanced) Write a shell script which will print the number of duplicated DNA sequences 
+\showable{5.15) (Advanced) Write a shell script which will print the number of duplicated DNA sequences 
 in sample_1.fastq.}{question}\endshowable
 
 \showable{Hint}{hint}
@@ -2011,7 +2034,7 @@ If all goes well the script should behave in exactly the same way as the answer 
 
 ---
 
-\showable{5.15) (Advanced) Modify your shell script so that it accepts the name of the input FASTQ file 
+\showable{5.16) (Advanced) Modify your shell script so that it accepts the name of the input FASTQ file 
 as a command line parameter.}{question}\endshowable
 
 \showable{Hint}{hint}
@@ -2098,7 +2121,7 @@ provide an *exit ..* line then it automatically returns a 0 for you.</div>
 
 ---
 
-\showable{5.16) (Advanced) Modify your shell script so that it accepts zero or more FASTQ files on the 
+\showable{5.17) (Advanced) Modify your shell script so that it accepts zero or more FASTQ files on the 
 command line argument and outputs the number of duplicated DNA sequences in each file.}{question}\endshowable
 
 \showable{Answer}{answer}
