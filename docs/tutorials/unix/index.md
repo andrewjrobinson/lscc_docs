@@ -2110,7 +2110,7 @@ The '*fi*' line means: this marks the end of the current *if* or *else* section.
 The '*[ $# -eq 1 ]*' part is the condition:
   
 * *$#*: is a special shell variable that indicates how many command line arguments were given. 
-* *-eq*: checks if the numbers on either side if it are equal.
+* *-eq*: checks if the numbers on either side of it are equal.
 * *1*: is a number one
 
 <div class="warning"><b>Spaces in conditions</b>:
