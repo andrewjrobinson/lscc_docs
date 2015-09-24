@@ -8,7 +8,28 @@ A hands-on-workshop covering the basics of the Unix/Linux command line interface
 
 \if{UNIX_INTRO}
 
+## Introduction
+
+If you are attending a workshop called Introduction to Unix then you can skip this section as it
+will be covered in the introductory presentation ([slides](slides.html))
+
 {!docs/tutorials/unix/intro.md!}
+
+\endif
+
+\if{!UNIX_INTRO}
+
+## Introduction
+
+Before we commence the hands-on part of this workshop we will first give a short 30 minute talk to introduce the Unix concepts. 
+The [sides](slides.html) are available if you would like.  Additionally the following reference material is available for later
+use.
+
+\showable{Reference Material}{indent}
+
+{!docs/tutorials/unix/intro.md!}
+
+\endshowable
 
 \endif
 
@@ -89,15 +110,16 @@ In this topic we will learn how to connect to a *Unix* computer via a method cal
 
 ### Connecting to a Unix computer
 
-To begin this workshop you will need to connect to an HPC.  Today we will use the LIMS-HPC.  The computer called 
-*lims-hpc-m* (m is for master which is another name for head node) is the one that coordinates all the HPCs tasks.
+To begin this workshop you will need to connect to an HPC.  Today we will use the \env{UNIX_HOSTSHORT}{upper}.  The computer called 
+*\env{UNIX_HOSTNAME}* \if{UNIX_HOSTNAME == lims-hpc-m.latrobe.edu.au}(m is for master which is another name for head node)\endif is the 
+one that coordinates all the HPCs tasks.
 
 **Server details**:
 
-* **host**: lims-hpc-m.latrobe.edu.au
-* **port**: 6022 
-* **username**: trainingXX (where XX is a two digit number, provided at workshop)
-* **password**: (provided at workshop) 
+* **host**: \env{UNIX_HOSTNAME}
+* **port**: \env{UNIX_PORT} 
+* **username**: \env{UNIX_USERNAME}
+* **password**: \env{UNIX_PASSWORD}
 
 {!docs/includes/connecting.md!}
 
@@ -107,29 +129,27 @@ To begin this workshop you will need to connect to an HPC.  Today we will use th
 can be confusing because it appears as if your typing is not recognised by the computer. Don’t be 
 alarmed; type your password in and press return at the end.
 
-LIMS-HPC is a high performance computer for La Trobe Users.  Logging in connects your local computer 
-(e.g. laptop) to LIMS-HPC, and allows you to type commands into the Unix prompt which are run on 
+\env{UNIX_HOSTSHORT}{upper} is a high performance computer for \env{UNIX_HPC_USERS} Users.  Logging in connects your local computer 
+(e.g. laptop) to \env{UNIX_HOSTSHORT}{upper}, and allows you to type commands into the Unix prompt which are run on 
 the HPC, and have the results displayed on your local screen.
 
-You will be allocated a training account on LIMS-HPC for the duration of the workshop. Your 
+You will be allocated a training account on \env{UNIX_HOSTSHORT}{upper} for the duration of the workshop. Your 
 username and password will be supplied at the start of the workshop.
 
-Log out of LIMS-HPC, and log back in again (to make sure you can repeat the process).
+Log out of \env{UNIX_HOSTSHORT}{upper}, and log back in again (to make sure you can repeat the process).
 
-All the remaining parts assume that you are logged into LIMS-HPC over ssh.
+All the remaining parts assume that you are logged into \env{UNIX_HOSTSHORT}{upper} over ssh.
 
 ### Exercises
 
-\showable+{1.1) When you’ve logged into LIMS-HPC run the following commands and see what they do:}{question}
+\showable+{1.1) When you’ve logged into the Unix server, run the following commands and see what they do:}{question}
 
-```sh
-who
-whoami
-date
-cal
-hostname
-/home/group/common/training/Intro_to_Unix/hi
-```
+* *who*
+* *whoami*
+* *date*
+* *cal*
+* *hostname*
+* *\env{UNIX_TRAINING_FILES_PATH}/hi*
 
 \endshowable
 
@@ -141,7 +161,7 @@ hostname
 * **cal**: displays a calendar on the terminal.  It can be configured to display more than just 
 the current month.
 * **hostname**: displays the name of the computer we are logged in to.
-* **/home/group/common/training/Intro_to_Unix/hi**: displays the text "Hello World"
+* **\env{UNIX_TRAINING_FILES_PATH}/hi**: displays the text "Hello World"
 
 \endshowable
 
@@ -229,7 +249,7 @@ for the current directory and *..* a shortcut for the directory above the curren
 
 \showable{Hint}{hint}
 
-Remember your *Current Working Directory* start's in your *home* directory (and the hint from the slides).
+Remember your *Current Working Directory* start's in your *home* directory.
 
 \showable{More|Less}
 
@@ -246,12 +266,12 @@ will look something like this:
 
 ```sh
 $ pwd
-/home/trainingXY
+/home/trainingXX
 ```
 
-**Answer**: */home/trainingXY*
+**Answer**: *\env{UNIX_HOMEDIR}*
 
-where *XY* is replaced by some 2 digit sequence.
+where *XX* is replaced by some 2 digit sequence.
 
 **Alternate method**:
 You can also find out the name of your home directory by printing the value of the *$HOME* shell variable:
@@ -394,7 +414,7 @@ drwxr-x--- 4 trainingXY training  512 Feb  9 14:18 trainingXY
 All 3 of the methods above mean the same thing.
 
 You will see a list of files and directories in the parent directory of your home directory. One of them will 
-be the name of your home directory, something like *trainingXY*.  Where *XY* is replaced by a two digit string
+be the name of your home directory, something like *\env{UNIX_USERNAME}*.  Where *XX* is replaced by a two digit string
 
 **Altername**: using the *-a* flag and looking at the *.* (dot) special file.
 
@@ -533,7 +553,7 @@ slash).}{question}\endshowable
 
 \showable{Hint}{hint}
 
-*ls* expects a single option which is the directory to change too.
+*ls* expects one or more anonymous options which are the files/directories to list.
 
 \endshowable
 
@@ -632,8 +652,8 @@ The answer to exercise 2.6 might give some hints on how to get back to the home 
 
 \showable{More|Less}
 
-*$HOME*, *~*, */home/trainingXY* are all methods to name your home directory.  Yet there is a simpler method; the answer
-is buried in *man cd* however *cd* doesn't its own manpage so you will need to search for it.
+*$HOME*, *~*, *\env{UNIX_HOMEDIR}* are all methods to name your home directory.  Yet there is a simpler method; the answer
+is buried in *man cd* however *cd* doesn't have its own manpage so you will need to search for it.
 
 \endshowable
 
@@ -669,13 +689,15 @@ This is a special-case behaviour which is built into *cd* for convenience.
 
 ---
 
-\showable{3.6) Change your working directory to */home/group/common/training/Intro_to_Unix/*}{question}\endshowable
+\showable+{3.6) Change your working directory to the following directory}{question}
+
+*\env{UNIX_TRAINING_FILES_PATH}*
+
+\endshowable
 
 \showable{Answer}{answer}
 
-```sh
-cd /home/group/common/training/Intro_to_Unix/
-```
+**Answer**: *cd \env{UNIX_TRAINING_FILES_PATH}*
 
 \endshowable
 
@@ -704,7 +726,7 @@ expectations.txt  hello.c  hi  jude.txt  moby.txt  sample_1.fastq  sleepy
 
 ---
 
-\showable{3.8) What kind of *file* is */home/group/common/training/Intro_to_Unix/sleepy*?}{question}\endshowable
+\showable{3.8) What kind of *file* is}{question} *\env{UNIX_TRAINING_FILES_PATH}/sleepy*?\endshowable
 
 \showable{Hint}{hint}
 
@@ -722,7 +744,7 @@ Take the word *file* quite literally.
 
 Use the *file* command to get extra information about the contents of a file:
 
-Assuming your current working directory is */home/group/common/training/Intro_to_Unix/*
+Assuming your current working directory is *\env{UNIX_TRAINING_FILES_PATH}*
 
 ```sh
 $ file sleepy
@@ -752,7 +774,7 @@ man file
 
 ---
 
-\showable{3.9) What kind of *file* is */home/group/common/training/Intro_to_Unix/hi*?}{question}\endshowable
+\showable{3.9) What kind of *file* is }{question} *\env{UNIX_TRAINING_FILES_PATH}/hi*?\endshowable
 
 \showable{Hint}{hint}
 
@@ -779,8 +801,8 @@ program (raw instructions that the computer can execute directly).
 
 ---
 
-\showable{3.10) What are the file permissions of */home/group/common/training/Intro_to_Unix/sleepy*? 
-What do they mean?}{question}\endshowable
+\showable{3.10) What are the file permissions of the following file and what do they mean?}{question} *\env{UNIX_TRAINING_FILES_PATH}/sleepy*
+\endshowable
 
 \showable{Hint}{hint}
 
@@ -798,9 +820,10 @@ $ ls -l sleepy
 -rw-r--r-- 1 arobinson common 183 Feb  9 16:36 sleepy
 ```
 
-**Answer**: We can see that this particular instance of sleepy is owned by the user arobinson, and is part of the common 
+**Answer**: The Answer is dependent on the computer you are connected too however will follow somthing like above. 
+We can see that this particular instance of sleepy is owned by the user arobinson, and is part of the common 
 user group. It is 183 bytes in size, and was last modified on the 9th of February at 4:36pm. The file is 
-readable to everyone, and writeable only to training01.  The digit '1' between the file permission string and 
+readable to everyone, and writeable only to arobinson.  The digit '1' between the file permission string and 
 the owner indicates that there is one link to the file. The Unix file system allows files to be referred to 
 by multiple "links". When you create a file it is referred to by one link, but you may add others later. For 
 future reference: links are created with the *ln* command.
@@ -886,8 +909,7 @@ exp01  file01  muscle.fq  test
 
 ---
 
-\showable{4.2) Copy all the files from */home/group/common/training/Intro_to_Unix/* into the newly created 
-test directory.}{question}\endshowable
+\showable{4.2) Copy all the files from the following directory into the newly created test directory.}{question} *\env{UNIX_TRAINING_FILES_PATH}*\endshowable
 
 \showable{Hint}{hint}
 
@@ -1752,21 +1774,7 @@ $ less sample_1.fastq.nl
 
 ---
 
-\showable{5.6) Use the *cat* command to print the contents of *file01* to screen}{question}\endshowable
-
-\showable{Answer}{answer}
-
-The *cat* command (short for concatenate takes one or more files and outputs their contents (one after the next).
-
-```sh
-$ cat file01
-```
-
-\endshowable
-
----
-
-\showable+{5.7) The four-lines-per-read format of FASTQ is cumbersome to deal with. Often it would be 
+\showable+{5.6) The four-lines-per-read format of FASTQ is cumbersome to deal with. Often it would be 
 preferable if we could convert it to tab-separated-value (TSV) format, such that each read appears 
 on a single line with each of its fields separated by tabs. Use the following command to convert 
 sample_1.fastq.nl into TSV format:}{question}
@@ -1790,7 +1798,7 @@ which causes it to join consecutive groups of 4 lines from the file into one lin
 
 ---
 
-\showable+{5.8) Do you expect the output of the following command to produce the same output as above? and why?}{question}
+\showable+{5.7) Do you expect the output of the following command to produce the same output as above? and why?}{question}
 
 ```sh
 $ paste sample_1.fastq sample_1.fastq sample_1.fastq sample_1.fastq > sample_1b.tsv
@@ -1819,7 +1827,7 @@ side point.
 
 ---
 
-\showable{5.9) Check that *sample_1.tsv* has the correct number of lines. Use the *head* command to view 
+\showable{5.8) Check that *sample_1.tsv* has the correct number of lines. Use the *head* command to view 
 the first *20* lines of the file.}{question}\endshowable
 
 \showable{Hint}{hint}
@@ -1848,7 +1856,7 @@ $ head -20 sample_1.tsv
 
 ---
 
-\showable{5.10) Use the *cut* command to print out the second column of *sample_1.tsv*. Redirect the 
+\showable{5.9) Use the *cut* command to print out the second column of *sample_1.tsv*. Redirect the 
 output to a file called *sample_1.dna.txt*.}{question}\endshowable
 
 \showable{Hint}{hint}
@@ -1873,7 +1881,7 @@ Check that the output file looks reasonable using *head* or *less*.
 
 ---
 
-\showable{5.11) Use the *sort* command to sort the lines of *sample_1.dna.txt* and redirect the output to 
+\showable{5.10) Use the *sort* command to sort the lines of *sample_1.dna.txt* and redirect the output to 
 *sample_1.dna.sorted.txt*. Use *head* to look at the first few lines of the output file. You should 
 see a lot of repeated sequences of As.}{question}\endshowable
 
@@ -1896,7 +1904,7 @@ file.
 
 ---
 
-\showable{5.12) Use the *uniq* command to remove duplicate consecutive lines from *sample_1.dna.sorted.txt*, 
+\showable{5.11) Use the *uniq* command to remove duplicate consecutive lines from *sample_1.dna.sorted.txt*, 
 redirect the result to *sample_1.dna.uniq.txt*. Compare the number of lines in sample1_dna.txt to 
 the number of lines in *sample_1.dna.uniq.txt*.}{question}\endshowable
 
@@ -1929,7 +1937,7 @@ removed.
 
 ---
 
-\showable{5.13) Can you modify the command from above to produce *only* those sequences of DNA which were 
+\showable{5.12) Can you modify the command from above to produce *only* those sequences of DNA which were 
 duplicated in *sample_1.dna.sorted.txt*?}{question}\endshowable
 
 \showable{Hint}{hint}
@@ -1956,7 +1964,7 @@ $ uniq -d sample_1.dna.sorted.txt > sample_1.dna.dup.txt
 
 ---
 
-\showable{5.14) Write a *shell pipeline* which will print the number of duplicated DNA sequences in 
+\showable{5.13) Write a *shell pipeline* which will print the number of duplicated DNA sequences in 
 sample_1.fastq.}{question}\endshowable
 
 \showable{Hint}{hint}
@@ -1988,7 +1996,7 @@ The output file should have *56079* lines.
 
 ---
 
-\showable{5.15) (Advanced) Write a shell script which will print the number of duplicated DNA sequences 
+\showable{5.14) (Advanced) Write a shell script which will print the number of duplicated DNA sequences 
 in sample_1.fastq.}{question}\endshowable
 
 \showable{Hint}{hint}
@@ -2034,7 +2042,7 @@ If all goes well the script should behave in exactly the same way as the answer 
 
 ---
 
-\showable{5.16) (Advanced) Modify your shell script so that it accepts the name of the input FASTQ file 
+\showable{5.15) (Advanced) Modify your shell script so that it accepts the name of the input FASTQ file 
 as a command line parameter.}{question}\endshowable
 
 \showable{Hint}{hint}
@@ -2121,7 +2129,7 @@ provide an *exit ..* line then it automatically returns a 0 for you.</div>
 
 ---
 
-\showable{5.17) (Advanced) Modify your shell script so that it accepts zero or more FASTQ files on the 
+\showable{5.16) (Advanced) Modify your shell script so that it accepts zero or more FASTQ files on the 
 command line argument and outputs the number of duplicated DNA sequences in each file.}{question}\endshowable
 
 \showable{Answer}{answer}

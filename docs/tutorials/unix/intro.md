@@ -1,8 +1,3 @@
-## Introduction
-
-If you are attending a workshop called Introduction to Unix then you can skip this section as it
-will be covered in the introductory presentation ([slides](slides.html))
-
 
 ### Why use unix
 
@@ -11,7 +6,7 @@ will be covered in the introductory presentation ([slides](slides.html))
   computing.
 * **Big data**: Unix programs are designed to handle large data sets
 * **Flexible**: Small programs that can be arranged in many ways to solve your problems
-* **Automation**: Scripting allows you to do many tasks in one step
+* **Automation**: Scripting allows you to do many tasks in one step and repeat steps many times
 * **Pipelines**: Unix programs are designed to be 'chained' together to form long multi-step pipelines
 * **Science Software**: Lots of Scientific software is designed to run in a Unix environment
 
@@ -40,7 +35,7 @@ There are several parts that make up the command prompt:
 * **Current working directory**: the current position within the file system that your are working.  More to follow
 * **Prompt**: this is simply a sign to the user that the computer is ready to accept the next command 
 
-From this point forward in this document, the command prompt will be simple represented as a '$' rather than
+From this point forward in this document, the command prompt will be simply represented as a '$' rather than
 the full command prompt as shown above.  When copying and pasting commands you should NOT copy the '$' sign.
 
 
@@ -56,7 +51,7 @@ There are a number of parts which may be included in a command; each is separate
 * **Flag**: these turn on (or off) specific features in the program.  They consist of a dash (-) followed by
   a single character.
 * **Long flag**: same as flag except they are generally two dashes (--) followed by a word (or two)
-* **Option**: set the value of some configurable option.  They are a flag (or long flag) followed by a value
+* **Option**: set the value of a configurable option.  They are a flag (or long flag) followed by a value
 * **Anonymous options**: these are one or more options that are specified in the required order
 * **Quoted value**: if you need to specify a space (or tab) in an option then you will need to use double (") or 
   single (') quotes on each side of the value. 
@@ -99,7 +94,7 @@ character and follow all the parent directories above the file/directory.
 
 The *current working directory* is the current location within the file system that you are currently using. 
 When you first login to a unix computer it will begin with the current working directory set to your home directory, that 
-is, a place the is unique to you and generally nobody else will have access to it.
+is, a place that is unique to you and generally nobody else will have access to it.
 
 <img src="media/unix-cwd.png" title="Current working directory" alt="Current working directory" width="500px" />
 
@@ -124,7 +119,7 @@ If your current working directory is set to */home* you can leave this part from
 
 There are a few further short cuts for typing relative file names:
 
-* *~* (Tilde): is a shortcut to your home directory
+* *~* (Tilde): is a short cut to your home directory
 * *.* (dot): is a short cut for the current directory
 * *..* (2x dot): means the parent (or one directory up) from current directory
 * *...* (3x dot): does not mean anything (a got-ya for new users).  If you want 2 directories up then chain two 
