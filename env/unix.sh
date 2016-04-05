@@ -15,3 +15,9 @@ export UNIX_HPC_USERS="My Organisation"
 
 # the path where central training files are stored
 export UNIX_TRAINING_FILES_PATH="/usr/local/training/unix"
+
+# Adds a section to the top of Unix Workshop covering the same topics in the intro presentation
+# useful if you want ot give the workshop to people outside an inperson environment.
+# 1 = Include intro
+# 0 = Provide a separate link to intro
+UNIX_INTRO=1

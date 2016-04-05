@@ -28,3 +28,10 @@ div.remark-slide-content.title h2 {font-size: 90px;}
 .phonetic2 {font-size: 30px; font-family: 'Courier';}
 .phonetic3 {font-size: 35px; font-family: 'Courier';}
 .phonetic4 {font-size: 40px; font-family: 'Courier';}
+
+.height10 {display: block; height: 10px;}
+.height20 {display: block; height: 20px;}
+.height30 {display: block; height: 30px;}
+.height40 {display: block; height: 40px;}
+.height50 {display: block; height: 50px;}
+.height100 {display: block; height: 100px;}
