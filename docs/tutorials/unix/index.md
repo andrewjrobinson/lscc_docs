@@ -10,8 +10,8 @@ A hands-on-workshop covering the basics of the Unix/Linux command line interface
 
 ## Introduction
 
-If you are attending a workshop called Introduction to Unix then you can skip this section as it
-will be covered in the introductory presentation ([slides](slides.html))
+If you are attending a workshop called "Introduction to Unix" then you can skip ahead to [Topic 1](#topic-1-remote-log-in) 
+as it will be covered in the introductory presentation ([slides](slides.html))
 
 {!docs/tutorials/unix/intro.md!}
 
