@@ -11,7 +11,7 @@ PORT="6022"
 
 #####################
 ## import defaults ##
-source env/defaults.sh
+source enviro/defaults.sh
 
 ###################
 ## Unix Workshop ##

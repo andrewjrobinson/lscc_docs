@@ -3,7 +3,7 @@
 # overrides for courses run from VLSCI
 
 # import the defaults
-source env/defaults.sh
+source enviro/defaults.sh
 
 
 ###################
