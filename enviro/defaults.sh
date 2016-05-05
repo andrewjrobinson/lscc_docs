@@ -48,4 +48,4 @@ export HPC_PASSWORD="(provided at workshop)"
 export HPC_INTRO=1
 
 # Adds a section to the top of the Unix Workshop explaining how the workshop is structured (i.e. questions/answers)
-export UNIX_HOWTO=1
+export HPC_HOWTO=1
