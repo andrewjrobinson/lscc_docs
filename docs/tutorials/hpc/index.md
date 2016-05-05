@@ -3,7 +3,39 @@
 
 # High-Performance Computing
 
-A hands-on-workshop covering High-Performance Computing (HPC)
+A hands-on-workshop covering High-Performance Computing (HPC).
+
+This workshop assumes you have a basic understanding of the Unix Operating System.  If not, then you should take
+a look at the [Hands-on Unix Workshop](../unix)
+
+\if{HPC_INTRO}
+
+## Introduction
+
+If you are attending a workshop called "High Performance Computing" then you can skip ahead to 
+[Topic 1](#topic-1-exploring-an-hpc) as it will be covered in the introductory presentation ([slides](slides.html))
+
+{!docs/tutorials/hpc/intro.md!}
+
+\endif
+
+\if{!HPC_INTRO}
+
+## Introduction
+
+Before we commence the hands-on part of this workshop we will first give a short 30 minute talk to introduce the High Performance Computing concepts. 
+The [slides](slides.html) are available if you would like.  Additionally the following reference material is available for later
+use.
+
+\showable{Reference Material}{indent}
+
+{!docs/tutorials/hpc/intro.md!}
+
+\endshowable
+
+\endif
+
+\if{HPC_HOWTO}
 
 ## How to use this workshop
 
@@ -19,7 +51,7 @@ An example question looks like:
 
 \showable{What is the Answer to Life?}{question}
 
-\endshowable
+\endif
 
 ### Hint
 
@@ -68,20 +100,20 @@ This workshop attempts to cater for two usage styles:
 	  same (or similar) answers.
 	* Its a good idea to read the hints and answer description as they often contain extra useful information.
 
-
-
+\endif
 
 ### Connecting to HPC
 
-To begin this workshop you will need to connect to an HPC.  Today we will use the LIMS-HPC.  The computer called *lims-hpc-m* (m is for 
-master which is another name for head node) is the one that coordinates all the HPCs tasks.
+To begin this workshop you will need to connect to an HPC.  Today we will use the \env{HPC_HOSTSHORT}{upper}.  The computer called  
+*\env{HPC_HOSTNAME}* \if{HPC_HOSTNAME == lims-hpc-m.latrobe.edu.au}(m is for master which is another name for head node)\endif is the 
+one that coordinates all the HPCs tasks.
 
 **Server details**:
 
-* **host**: lims-hpc-m.latrobe.edu.au
-* **port**: 6022 
-* **username**: trainingXX (where XX is a two digit number, provided at workshop)
-* **password**: PROVIDED at workshop 
+* **host**: \env{HPC_HOSTNAME}
+* **port**: \env{HPC_PORT} 
+* **username**: \env{HPC_USERNAME}
+* **password**: \env{HPC_PASSWORD}
 
 **Connection instructions**:
 
@@ -352,10 +384,11 @@ $ module avail f
 fasta-gcc/35.4.12            flex-gcc/2.5.39
 fastqc/0.10.1                fontconfig-gcc/2.11.93
 fastStructure-gcc/2013.11.07 freebayes-gcc/20140603
-fastx_toolkit-gcc/0.0.14     freetype-gcc/2.5.3
+fastStructure-gcc/20150320   freetype-gcc/2.5.3
+fastx_toolkit-gcc/0.0.14
 ```
 
-**Answer**: 8 modules
+**Answer**: 9 modules
 
 \endshowable
 
@@ -738,7 +771,7 @@ we need to use the SLURM software package (called an HPC Scheduler).  The purpos
 * **Node**: a server grade computer which is part of an HPC
 * **Batch Job**: a group of one or more related Unix commands that need to be run (executed) for a user.  e.g. run fastqc on all my samples
 * **Partition (or Queue)**: a list of jobs that need to be run.  There is often more than one partition on an HPC which usually have specific requirements 
-for the jobs that can run be added to them.  e.g. *8hour* will accept jobs less than or equal to 8hours long
+for the jobs that can be added to them.  e.g. *8hour* will accept jobs less than or equal to 8hours long
 * **Runtime**: the amount of time a job is expected (or actually) runs
 * **Resources**: computation resources that can be given to our jobs in order to run them.  e.g. CPU Cores, Memory, and Time.
 * **Job Script**: a special BASH script that SLURM uses to run a job on our behalf once resources become available.  Job scripts contain details of the 
@@ -1047,12 +1080,12 @@ $ squeue -u training01
 
 ### Advanced
 
-\showable{3.11) Make a copy of *task01* and call it *prime_numbers*.  Make it load the training module and use the *prime* command calculate prime 
+\showable{3.11) Make a copy of *task01* and call it *prime_numbers*.  Make it load the training module and use the *prime* command to calculate prime 
 numbers for 20 seconds.}{question}\endshowable
 
 \showable{Hint}{hint}
 
-You can find the *prime* command in the *training/1.0* module
+You can find the *prime* command in the *training-gcc/1.0* module
 
 \endshowable
 
@@ -1060,17 +1093,17 @@ Show \showable{Answer}{answer}
 
 The key points to change in the task01 script are:
 
-1. adding the *module load training/1.0*
+1. adding the *module load training-gcc/1.0*
 2. replacing the *sleep* (and *echo*) statements with a call to *prime 20*.
 
 ```bash
 #!/bin/bash
-#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=1024
 #SBATCH --partition=training
 #SBATCH --time=30:00
 
-module load training/1.0
+module load training-gcc/1.0
 
 echo "Starting at: $(date)"
 prime 20
@@ -1140,7 +1173,7 @@ Show \showable{Answer}{answer}
 
 ```bash
 #!/bin/bash
-#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=1024
 #SBATCH --partition=training
 #SBATCH --time=30:00
