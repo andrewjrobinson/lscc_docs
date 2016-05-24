@@ -33,6 +33,13 @@ export UNIX_INTRO=0
 ##################
 ## HPC Workshop ##
 
+# the example to use when listing compute node hosts (will be appended with [1-5] etc.)
+export HPC_HOST_PREFIX="${HOSTSHORT}-"
+
+# the default partition names
+export HPC_DEF_PARTITION=compute
+export HPC_OTH_PARTITION=8hour
+
 # Adds a section to the top of HPC Workshop covering the same topics in the intro presentation.
 # Useful if you want to give the workshop to people outside an inperson environment.
 # 1 = Include intro

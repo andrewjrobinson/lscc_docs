@@ -41,6 +41,17 @@ export HPC_USERNAME=${USERNAME:-"trainingXX"}
 export HPC_USERNAME_DESC="(where XX is a two digit number, provided at workshop)"
 export HPC_PASSWORD="(provided at workshop)"
 
+# the example to use when listing compute node hosts (will be appended with [1-5] etc.)
+export HPC_HOST_PREFIX=hostname
+
+# the default partition names
+export HPC_DEF_PARTITION=default
+export HPC_OTH_PARTITION=training
+
+# the partition to use during workshop
+export HPC_TRAINING_PARTITON=training
+export HPC_TRAINING_MODULE=training-gcc
+
 # Adds a section to the top of HPC Workshop covering the same topics in the intro presentation.
 # Useful if you want to give the workshop to people outside an inperson environment.
 # 1 = Include intro
