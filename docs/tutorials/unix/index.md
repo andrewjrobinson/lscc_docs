@@ -1,9 +1,39 @@
 <style src="../../includes/media/tute.css" ></style>
 <style>em {font-style: normal; font-family: courier new;}</style>
 
+
 # Introduction to Unix
 
 A hands-on-workshop covering the basics of the Unix/Linux command line interface
+
+\if{UNIX_INTRO}
+
+## Introduction
+
+If you are attending a workshop called "Introduction to Unix" then you can skip ahead to [Topic 1](#topic-1-remote-log-in) 
+as it will be covered in the introductory presentation ([slides](slides.html))
+
+{!docs/tutorials/unix/intro.md!}
+
+\endif
+
+\if{!UNIX_INTRO}
+
+## Introduction
+
+Before we commence the hands-on part of this workshop we will first give a short 30 minute talk to introduce the Unix concepts. 
+The [sides](slides.html) are available if you would like.  Additionally the following reference material is available for later
+use.
+
+\showable{Reference Material}{indent}
+
+{!docs/tutorials/unix/intro.md!}
+
+\endshowable
+
+\endif
+
+\if{UNIX_HOWTO}
 
 ## How to use this workshop
 
@@ -68,7 +98,7 @@ This workshop attempts to cater for two usage styles:
 	  same (or similar) answers.
 	* Its a good idea to read the hints and answer description as they often contain extra useful information.
 
-
+\endif
 
 
 
@@ -80,15 +110,16 @@ In this topic we will learn how to connect to a *Unix* computer via a method cal
 
 ### Connecting to a Unix computer
 
-To begin this workshop you will need to connect to an HPC.  Today we will use the LIMS-HPC.  The computer called 
-*lims-hpc-m* (m is for master which is another name for head node) is the one that coordinates all the HPCs tasks.
+To begin this workshop you will need to connect to an HPC.  Today we will use the \env{UNIX_HOSTSHORT}{upper}.  The computer called 
+*\env{UNIX_HOSTNAME}* \if{UNIX_HOSTNAME == lims-hpc-m.latrobe.edu.au}(m is for master which is another name for head node)\endif is the 
+one that coordinates all the HPCs tasks.
 
 **Server details**:
 
-* **host**: lims-hpc-m.latrobe.edu.au
-* **port**: 6022 
-* **username**: trainingXX (where XX is a two digit number, provided at workshop)
-* **password**: (provided at workshop) 
+* **host**: \env{UNIX_HOSTNAME}
+* **port**: \env{UNIX_PORT} 
+* **username**: \env{UNIX_USERNAME}
+* **password**: \env{UNIX_PASSWORD}
 
 {!docs/includes/connecting.md!}
 
@@ -98,29 +129,27 @@ To begin this workshop you will need to connect to an HPC.  Today we will use th
 can be confusing because it appears as if your typing is not recognised by the computer. Don’t be 
 alarmed; type your password in and press return at the end.
 
-LIMS-HPC is a high performance computer for La Trobe Users.  Logging in connects your local computer 
-(e.g. laptop) to LIMS-HPC, and allows you to type commands into the Unix prompt which are run on 
+\env{UNIX_HOSTSHORT}{upper} is a high performance computer for \env{UNIX_HPC_USERS} Users.  Logging in connects your local computer 
+(e.g. laptop) to \env{UNIX_HOSTSHORT}{upper}, and allows you to type commands into the Unix prompt which are run on 
 the HPC, and have the results displayed on your local screen.
 
-You will be allocated a training account on LIMS-HPC for the duration of the workshop. Your 
+You will be allocated a training account on \env{UNIX_HOSTSHORT}{upper} for the duration of the workshop. Your 
 username and password will be supplied at the start of the workshop.
 
-Log out of LIMS-HPC, and log back in again (to make sure you can repeat the process).
+Log out of \env{UNIX_HOSTSHORT}{upper}, and log back in again (to make sure you can repeat the process).
 
-All the remaining parts assume that you are logged into LIMS-HPC over ssh.
+All the remaining parts assume that you are logged into \env{UNIX_HOSTSHORT}{upper} over ssh.
 
 ### Exercises
 
-\showable+{1.1) When you’ve logged into LIMS-HPC run the following commands and see what they do:}{question}
+\showable+{1.1) When you’ve logged into the Unix server, run the following commands and see what they do:}{question}
 
-```sh
-who
-whoami
-date
-cal
-hostname
-/home/group/common/training/Intro_to_Unix/hi
-```
+* *who*
+* *whoami*
+* *date*
+* *cal*
+* *hostname*
+* *\env{UNIX_TRAINING_FILES_PATH}/hi*
 
 \endshowable
 
@@ -132,7 +161,7 @@ hostname
 * **cal**: displays a calendar on the terminal.  It can be configured to display more than just 
 the current month.
 * **hostname**: displays the name of the computer we are logged in to.
-* **/home/group/common/training/Intro_to_Unix/hi**: displays the text "Hello World"
+* **\env{UNIX_TRAINING_FILES_PATH}/hi**: displays the text "Hello World"
 
 \endshowable
 
@@ -220,7 +249,7 @@ for the current directory and *..* a shortcut for the directory above the curren
 
 \showable{Hint}{hint}
 
-Remember your *Current Working Directory* start's in your *home* directory (and the hint from the slides).
+Remember your *Current Working Directory* start's in your *home* directory.
 
 \showable{More|Less}
 
@@ -237,12 +266,12 @@ will look something like this:
 
 ```sh
 $ pwd
-/home/trainingXY
+/home/trainingXX
 ```
 
-**Answer**: */home/trainingXY*
+**Answer**: *\env{UNIX_HOMEDIR}*
 
-where *XY* is replaced by some 2 digit sequence.
+where *XX* is replaced by some 2 digit sequence.
 
 **Alternate method**:
 You can also find out the name of your home directory by printing the value of the *$HOME* shell variable:
@@ -385,7 +414,7 @@ drwxr-x--- 4 trainingXY training  512 Feb  9 14:18 trainingXY
 All 3 of the methods above mean the same thing.
 
 You will see a list of files and directories in the parent directory of your home directory. One of them will 
-be the name of your home directory, something like *trainingXY*.  Where *XY* is replaced by a two digit string
+be the name of your home directory, something like *\env{UNIX_USERNAME}*.  Where *XX* is replaced by a two digit string
 
 **Altername**: using the *-a* flag and looking at the *.* (dot) special file.
 
@@ -524,7 +553,7 @@ slash).}{question}\endshowable
 
 \showable{Hint}{hint}
 
-*ls* expects a single option which is the directory to change too.
+*ls* expects one or more anonymous options which are the files/directories to list.
 
 \endshowable
 
@@ -623,8 +652,8 @@ The answer to exercise 2.6 might give some hints on how to get back to the home 
 
 \showable{More|Less}
 
-*$HOME*, *~*, */home/trainingXY* are all methods to name your home directory.  Yet there is a simpler method; the answer
-is buried in *man cd* however *cd* doesn't its own manpage so you will need to search for it.
+*$HOME*, *~*, *\env{UNIX_HOMEDIR}* are all methods to name your home directory.  Yet there is a simpler method; the answer
+is buried in *man cd* however *cd* doesn't have its own manpage so you will need to search for it.
 
 \endshowable
 
@@ -660,13 +689,15 @@ This is a special-case behaviour which is built into *cd* for convenience.
 
 ---
 
-\showable{3.6) Change your working directory to */home/group/common/training/Intro_to_Unix/*}{question}\endshowable
+\showable+{3.6) Change your working directory to the following directory}{question}
+
+*\env{UNIX_TRAINING_FILES_PATH}*
+
+\endshowable
 
 \showable{Answer}{answer}
 
-```sh
-cd /home/group/common/training/Intro_to_Unix/
-```
+**Answer**: *cd \env{UNIX_TRAINING_FILES_PATH}*
 
 \endshowable
 
@@ -695,7 +726,7 @@ expectations.txt  hello.c  hi  jude.txt  moby.txt  sample_1.fastq  sleepy
 
 ---
 
-\showable{3.8) What kind of *file* is */home/group/common/training/Intro_to_Unix/sleepy*?}{question}\endshowable
+\showable{3.8) What kind of *file* is}{question} *\env{UNIX_TRAINING_FILES_PATH}/sleepy*?\endshowable
 
 \showable{Hint}{hint}
 
@@ -713,7 +744,7 @@ Take the word *file* quite literally.
 
 Use the *file* command to get extra information about the contents of a file:
 
-Assuming your current working directory is */home/group/common/training/Intro_to_Unix/*
+Assuming your current working directory is *\env{UNIX_TRAINING_FILES_PATH}*
 
 ```sh
 $ file sleepy
@@ -743,7 +774,7 @@ man file
 
 ---
 
-\showable{3.9) What kind of *file* is */home/group/common/training/Intro_to_Unix/hi*?}{question}\endshowable
+\showable{3.9) What kind of *file* is }{question} *\env{UNIX_TRAINING_FILES_PATH}/hi*?\endshowable
 
 \showable{Hint}{hint}
 
@@ -770,8 +801,8 @@ program (raw instructions that the computer can execute directly).
 
 ---
 
-\showable{3.10) What are the file permissions of */home/group/common/training/Intro_to_Unix/sleepy*? 
-What do they mean?}{question}\endshowable
+\showable{3.10) What are the file permissions of the following file and what do they mean?}{question} *\env{UNIX_TRAINING_FILES_PATH}/sleepy*
+\endshowable
 
 \showable{Hint}{hint}
 
@@ -789,9 +820,10 @@ $ ls -l sleepy
 -rw-r--r-- 1 arobinson common 183 Feb  9 16:36 sleepy
 ```
 
-**Answer**: We can see that this particular instance of sleepy is owned by the user arobinson, and is part of the common 
+**Answer**: The Answer is dependent on the computer you are connected too however will follow somthing like above. 
+We can see that this particular instance of sleepy is owned by the user arobinson, and is part of the common 
 user group. It is 183 bytes in size, and was last modified on the 9th of February at 4:36pm. The file is 
-readable to everyone, and writeable only to training01.  The digit '1' between the file permission string and 
+readable to everyone, and writeable only to arobinson.  The digit '1' between the file permission string and 
 the owner indicates that there is one link to the file. The Unix file system allows files to be referred to 
 by multiple "links". When you create a file it is referred to by one link, but you may add others later. For 
 future reference: links are created with the *ln* command.
@@ -877,8 +909,7 @@ exp01  file01  muscle.fq  test
 
 ---
 
-\showable{4.2) Copy all the files from */home/group/common/training/Intro_to_Unix/* into the newly created 
-test directory.}{question}\endshowable
+\showable{4.2) Copy all the files from the following directory into the newly created test directory.}{question} *\env{UNIX_TRAINING_FILES_PATH}*\endshowable
 
 \showable{Hint}{hint}
 
@@ -1756,7 +1787,7 @@ $ cat sample_1.fastq | paste - - - - > sample_1.tsv
 \showable{Answer}{answer}
 
 The *'-'* (dash) character has a special meaning when used in place of a file; it means use the standard
-input instead of a real file.  Note: while it is fairly common in most Unix programs, not all wil support it.
+input instead of a real file.  Note: while it is fairly common in most Unix programs, not all will support it.
 
 The *paste* command is useful for merging multiple files together line-by-line, such that the *Nth* 
 line from each file is joined together into one line in the output, separated by default with a 
@@ -2079,7 +2110,7 @@ The '*fi*' line means: this marks the end of the current *if* or *else* section.
 The '*[ $# -eq 1 ]*' part is the condition:
   
 * *$#*: is a special shell variable that indicates how many command line arguments were given. 
-* *-eq*: checks if the numbers on either side if it are equal.
+* *-eq*: checks if the numbers on either side of it are equal.
 * *1*: is a number one
 
 <div class="warning"><b>Spaces in conditions</b>:

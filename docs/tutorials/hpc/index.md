@@ -3,7 +3,39 @@
 
 # High-Performance Computing
 
-A hands-on-workshop covering High-Performance Computing (HPC)
+A hands-on-workshop covering High-Performance Computing (HPC).
+
+This workshop assumes you have a basic understanding of the Unix Operating System.  If not, then you should take
+a look at the [Hands-on Unix Workshop](../unix)
+
+\if{HPC_INTRO}
+
+## Introduction
+
+If you are attending a workshop called "High Performance Computing" then you can skip ahead to 
+[Topic 1](#topic-1-exploring-an-hpc) as it will be covered in the introductory presentation ([slides](slides.html))
+
+{!docs/tutorials/hpc/intro.md!}
+
+\endif
+
+\if{!HPC_INTRO}
+
+## Introduction
+
+Before we commence the hands-on part of this workshop we will first give a short 30 minute talk to introduce the High Performance Computing concepts. 
+The [slides](slides.html) are available if you would like.  Additionally the following reference material is available for later
+use.
+
+\showable{Reference Material}{indent}
+
+{!docs/tutorials/hpc/intro.md!}
+
+\endshowable
+
+\endif
+
+\if{HPC_HOWTO}
 
 ## How to use this workshop
 
@@ -19,7 +51,7 @@ An example question looks like:
 
 \showable{What is the Answer to Life?}{question}
 
-\endshowable
+\endif
 
 ### Hint
 
@@ -68,20 +100,20 @@ This workshop attempts to cater for two usage styles:
 	  same (or similar) answers.
 	* Its a good idea to read the hints and answer description as they often contain extra useful information.
 
-
-
+\endif
 
 ### Connecting to HPC
 
-To begin this workshop you will need to connect to an HPC.  Today we will use the LIMS-HPC.  The computer called *lims-hpc-m* (m is for 
-master which is another name for head node) is the one that coordinates all the HPCs tasks.
+To begin this workshop you will need to connect to an HPC.  Today we will use the \env{HPC_HOSTSHORT}{upper}.  The computer called  
+*\env{HPC_HOSTNAME}* \if{HPC_HOSTSHORT == lims-hpc-m}(m is for master which is another name for head node)\endif is the 
+one that coordinates all the HPCs tasks.
 
 **Server details**:
 
-* **host**: lims-hpc-m.latrobe.edu.au
-* **port**: 6022 
-* **username**: trainingXX (where XX is a two digit number, provided at workshop)
-* **password**: PROVIDED at workshop 
+* **host**: \env{HPC_HOSTNAME}
+* **port**: \env{HPC_PORT} 
+* **username**: \env{HPC_USERNAME}
+* **password**: \env{HPC_PASSWORD}
 
 **Connection instructions**:
 
@@ -120,15 +152,17 @@ An HPC (short for ‘High Performance Computer’) is simply a collection of Ser
 \showable{Hint}{hint}
 
 When you login, you will be presented with a message; this is called the *Message Of The Day* and usually includes lots of useful 
-information.  On LIMS-HPC this includes a list of useful commands, the last login details for your account and the contact email
-of the system administrator
+information.  On \env{HPC_HOSTSHORT}{upper} this includes a list of useful commands, the last login details for your account and 
+the contact email of the system administrator
 
 \endshowable
 
 \showable{Answer}{answer}
 
-* LIMS-HPC: andrew.robinson@latrobe.edu.au
-* MERRI & BARCOO: help@vlsci.unimelb.edu.au
+Depending on which computer you are working:
+
+* SNOWY & BARCOO: help@vlsci.unimelb.edu.au
+* LIMS-HPC: genomics@latrobe.edu.au
 
 \endshowable
 
@@ -140,8 +174,8 @@ of the system administrator
 
 \showable{Hint}{hint}
 
-The *lims-hpc-[2-4]* is shorthand for *lims-hpc-2 lims-hpc-3 and lims-hpc-4* and *lims-hpc-[1,5]* is shorthand for
-*lims-hpc-1 and lims-hpc-5*
+The *\env{HPC_HOST_PREFIX}[2-4]* is shorthand for *\env{HPC_HOST_PREFIX}2 \env{HPC_HOST_PREFIX}3 and \env{HPC_HOST_PREFIX}4* and *\env{HPC_HOST_PREFIX}[1,5]* is shorthand for
+*\env{HPC_HOST_PREFIX}1* and *\env{HPC_HOST_PREFIX}5*
 
 \showable{more|less}
 
@@ -167,9 +201,9 @@ NOTE: the above list will vary depending on the HPC setup.
 The *sinfo* command lists all available partitions and the status of each node within them.  If you count up the names of nodes 
 (uniquely) you will get the total nodes in this cluster.  
 
-* LIMS-HPC: **6** (*lims-hpc-m* and *lims-hpc-1* through *lims-hpc-5*)
-* MERRI: **84** (*turpin* and *merri001* through *merri083*)
 * BARCOO: **70** (*barcoo001* through *barcoo070*)
+* SNOWY: **43** (*snowy001* through *snowy043*)
+* LIMS-HPC: **6** (*lims-hpc-m* and *lims-hpc-1* through *lims-hpc-5*)
 
 \endshowable
 
@@ -352,10 +386,23 @@ $ module avail f
 fasta-gcc/35.4.12            flex-gcc/2.5.39
 fastqc/0.10.1                fontconfig-gcc/2.11.93
 fastStructure-gcc/2013.11.07 freebayes-gcc/20140603
-fastx_toolkit-gcc/0.0.14     freetype-gcc/2.5.3
+fastStructure-gcc/20150320   freetype-gcc/2.5.3
+fastx_toolkit-gcc/0.0.14
 ```
 
-**Answer**: 8 modules
+\if{HPC_HOSTSHORT == lims-hpc-m}
+
+**Answer**: 9 modules
+
+\endif
+
+\if{HPC_HOSTSHORT == barcoo}
+
+**Answer**: 26 modules
+
+\endif
+
+NOTE: this was correct at time of writing this workshop and might increase over time so don't be alarmed if you got more
 
 \endshowable
 
@@ -497,7 +544,8 @@ Currently Loaded Modulefiles:
 
 You may have noticed when we loaded *pear-gcc* the module called *gcc* was also loaded; this gives a hint as to where the others come from.
 
-**Answer**: They are *dependencies*; that is, they are supporting software that is used by the module we loaded.
+**Answer**: They are *dependencies*; that is, they are supporting software that is used by the module we loaded.  Additionally, some HPC's 
+automatically load some modules for you when you login.
 
 \endshowable
 
@@ -557,9 +605,21 @@ $ module purge
 **Answer**: running the *purge* sub-command will unload all modules you loaded (and all dependencies).
 
 **Alternative**: if you close your SSH connection and re-open it the new session will be blank as well.
+
 \endshowable
 
+\if{HPC_HOSTSHORT == barcoo}
+
 ---------------
+
+<div class="error"><b>BEFORE CONTINUING</b>: If you are using BARCOO or SNOWY you will need to load the default commands
+again.  Do so by running <em>module load vlsci</em></div>
+
+\endif
+
+---------------
+
+\if{HPC_HOSTSHORT == lims-hpc-m}
 
 **LIMS-HPC Specific**: 
 
@@ -710,7 +770,7 @@ licence for malt.
 
 \endshowable
 
-
+\endif
 
 
 
@@ -722,8 +782,8 @@ licence for malt.
 
 ## Topic 3: Job Submission
 
-Up to this point in the workshop (and the previous Unix workshop) we have only used the head-node of the HPC.  While this is ok for small jobs on small
-HPCs like LIMS-HPC, it's unworkable for most jobs.  In this topic we will start to learn how to make use of the rest of the HPCs immense compute power
+Up to this point in the workshop (and the previous Unix workshop) we have only used the head-node of the HPC.  While this is ok for small jobs 
+\if{HPC_HOSTSHORT == lims-hpc-m} on small HPCs like LIMS-HPC,\endif it's unworkable for most jobs.  In this topic we will start to learn how to make use of the rest of the HPCs immense compute power
 
 ### Background
 
@@ -738,12 +798,12 @@ we need to use the SLURM software package (called an HPC Scheduler).  The purpos
 * **Node**: a server grade computer which is part of an HPC
 * **Batch Job**: a group of one or more related Unix commands that need to be run (executed) for a user.  e.g. run fastqc on all my samples
 * **Partition (or Queue)**: a list of jobs that need to be run.  There is often more than one partition on an HPC which usually have specific requirements 
-for the jobs that can run be added to them.  e.g. *8hour* will accept jobs less than or equal to 8hours long
+for the jobs that can be added to them.  e.g. *8hour* will accept jobs less than or equal to 8hours long
 * **Runtime**: the amount of time a job is expected (or actually) runs
 * **Resources**: computation resources that can be given to our jobs in order to run them.  e.g. CPU Cores, Memory, and Time.
 * **Job Script**: a special BASH script that SLURM uses to run a job on our behalf once resources become available.  Job scripts contain details of the 
 resources that our commands need to run.
-* **Output (or Results) file**: When SLURM runs our batch job it will save the results that would normally be output on the terminal to a file; this file 
+* **Output (or Results) file**: When SLURM runs our batch job it will save the results that would normally be output on the terminal (screen) to a file; this file 
 is called the output file.
 
 
@@ -756,7 +816,7 @@ is called the output file.
 
 **Useful Commands**: *man, sinfo, cat, sbatch, squeue, cp, module, prime*
 
-\showable{3.1) Which nodes could a ‘compute’ job go on?}{question}\endshowable
+\showable{3.1) Which nodes could a ‘\env[HPC_DEF_PARTITION]’ job go on?}{question}\endshowable
 
 \showable{Hint}{hint}
 
@@ -764,8 +824,8 @@ Try the *sinfo* command
 
 \showable{more|less}
 
-Have a look at the PARTITION and NODELIST columns.  The *lims-hpc-[2-4]* is shorthand for *lims-hpc-2 lims-hpc-3 
-and lims-hpc-4*
+Have a look at the PARTITION and NODELIST columns.  The *\env{HPC_HOST_PREFIX}[2-4]* is shorthand for *\env{HPC_HOST_PREFIX}2 \env{HPC_HOST_PREFIX}3 
+and \env{HPC_HOST_PREFIX}4*
 
 ```sh
 $ sinfo
@@ -776,6 +836,8 @@ bigmem       up 200-00:00:      1   idle lims-hpc-1
 8hour        up   08:00:00      3    mix lims-hpc-[2-4]
 8hour        up   08:00:00      3   idle lims-hpc-[1,5],lims-hpc-m
 ```
+Note: the output to the sinfo command will look different depending on which HPC you are using and it's current usage levels
+
 \endshowable
 
 \endshowable
@@ -783,27 +845,39 @@ bigmem       up 200-00:00:      1   idle lims-hpc-1
 Show \showable{Answer}{answer}
 
 The *sinfo* command will list the *partitions*.  It summaries the nodes by their current status so there may be more 
-that one line with *compute* in the partition column.  It lists the nodes in shorthand i.e. lims-hpc-[1,3-5] means lims-hpc-1, 
-lims-hpc-3, lims-hpc-4, lims-hpc-5.
-	
-**Answer**: lims-hpc-1, lims-hpc-2 lims-hpc-3, lims-hpc-4, lims-hpc-5
+than one line with *\env{HPC_DEF_PARTITION}* in the partition column.  It lists the nodes in shorthand i.e. \env{HPC_HOST_PREFIX}[1,3-5] means 
+\env{HPC_HOST_PREFIX}1, \env{HPC_HOST_PREFIX}3, \env{HPC_HOST_PREFIX}4, \env{HPC_HOST_PREFIX}5.
+
+\if{HPC_HOSTSHORT == lims-hpc-m}
+
+**Answer**: lims-hpc-1, lims-hpc-2, lims-hpc-3, lims-hpc-4, lims-hpc-5
+
+\endif
+
+\if{HPC_HOSTSHORT == barcoo}
+
+**Answer**: barcoo001, barcoo002, ..., barcoo070
+
+\endif
 
 \endshowable
 
 
 ---------------
 
-\showable{3.2) What about an ‘8hour’ job?}{question}\endshowable
+\showable{3.2) What about an ‘\env[HPC_OTH_PARTITION]’ job?}{question}\endshowable
 
 \showable{Hint}{hint}
 
-Use *sinfo* again but look at the 8hour rows
+Use *sinfo* again but look at the *\env[HPC_OTH_PARTITION]* rows
 
 \endshowable
 
 Show \showable{Answer}{answer}
 
-**Answer**: lims-hpc-1, lims-hpc-2 lims-hpc-3, lims-hpc-4, lims-hpc-5, lims-hpc-m
+**Answer**: \env{HPC_HOST_PREFIX}??
+
+This is dependant on what the HPC Sys Admin gave us.  You are probably correct but check with the workshop facilitators if you wish.
 
 \endshowable
 
@@ -841,7 +915,7 @@ Show \showable{Answer}{answer}
 * task01: **1 cpu core**
 * task02: **6 cpu cores**
 * task03: **at least 1** as this has requested all cpu cores on the node its running on (*--exclusive*).  
-However, since we know that all nodes on LIMS-HPC have 16, we know it will get 16.
+However, since we know that all nodes on \env{HPC_HOSTSHORT}{upper} have 16, we know it will get 16.
 
 \endshowable
 
@@ -874,15 +948,27 @@ For task01 and task02 the calculation is *--mem-per-cpu x --ntasks x --cpus-per-
 
 For task03, like with the cpus cores question, we get all the memory available on the node we get allocated
 
-<div class="warning"><b>NOTE</b>: it might be tempting to use the <em>--mem</em> option on non-exclusive (i.e. <em>--shared</em>) jobs 
+<div class="warning"><b>NOTE</b>: it might be tempting to use the <em>--mem</em> option on non-exclusive (i.e. <em>--share</em>) jobs 
 however this will <b>NOT</b> work since the meaning of <em>--mem</em> is <em>"go on a node with at least X MB of memory"</em>; it does 
 not actually allocate any of it to you so your job will get terminated once it tries to use any memory.</div>
 
 **Answer**:
 
+\if{HPC_HOSTSHORT == lims-hpc-m}
+
 * task01: **1024MB** (1GB) i.e. 1024 x 1 x 1
 * task02: **12288MB** (12GB) i.e. 2048 x 3 x 2
-* task03: **at least 1024MB** (1GB). The actual amount could be 128GB (nodes 2 to 5) or 256GB (node 1)
+* task03: **at least 1024MB** (1GB).  The actual amount could be 128GB (nodes 2 to 5) or 256GB (node 1)
+
+\endif
+
+\if{HPC_HOSTSHORT != lims-hpc-m}
+
+* task01: **1024MB** (1GB) i.e. 1024 x 1 x 1
+* task02: **12288MB** (12GB) i.e. 2048 x 3 x 2
+* task03: **at least 1024MB** (1GB).  The actual amount could be a lot more as most HPCs have 100GB+ per node 
+
+\endif
 
 \endshowable
 
@@ -1015,7 +1101,7 @@ Submitted batch job 9998
 
 \showable{Hint}{hint}
 
-The *squeue* command shows you the currently running jobs.  If its been longer than 30 seconds since you submitted it you might have to resubmit it.
+The *squeue* command shows you the currently running jobs.  If it's been longer than 30 seconds since you submitted it you might have to resubmit it.
 
 \endshowable
 
@@ -1047,12 +1133,12 @@ $ squeue -u training01
 
 ### Advanced
 
-\showable{3.11) Make a copy of *task01* and call it *prime_numbers*.  Make it load the training module and use the *prime* command calculate prime 
+\showable{3.11) Make a copy of *task01* and call it *prime_numbers*.  Make it load the training module and use the *prime* command to calculate prime 
 numbers for 20 seconds.}{question}\endshowable
 
 \showable{Hint}{hint}
 
-You can find the *prime* command in the *training/1.0* module
+You can find the *prime* command in the *training-gcc/1.0* module
 
 \endshowable
 
@@ -1060,17 +1146,17 @@ Show \showable{Answer}{answer}
 
 The key points to change in the task01 script are:
 
-1. adding the *module load training/1.0*
+1. adding the *module load training-gcc/1.0*
 2. replacing the *sleep* (and *echo*) statements with a call to *prime 20*.
 
 ```bash
 #!/bin/bash
-#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=1024
 #SBATCH --partition=training
 #SBATCH --time=30:00
 
-module load training/1.0
+module load training-gcc/1.0
 
 echo "Starting at: $(date)"
 prime 20
@@ -1140,7 +1226,7 @@ Show \showable{Answer}{answer}
 
 ```bash
 #!/bin/bash
-#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=1024
 #SBATCH --partition=training
 #SBATCH --time=30:00
@@ -1178,7 +1264,7 @@ be ~20 seconds.
 It is often difficult to predict how a software tool may utilise HPC System Resources (CPU/Memory) as it can vary quite widely based 
 on a number of factors (data set, number of CPU's, processing step etc.).
 
-In this topic we will cover some of the tools that are available to you to *watch* what is happening so we can make better predictions
+In this topic we will cover some of the tools that are available that enable you to *watch* what is happening so we can make better predictions
 in the future.
 
 
@@ -1225,9 +1311,9 @@ Show \showable{Answer}{answer}
 
 **Answer**: If you look at the first value on the *Mem* line (line 4) it will tell you the total memory on this computer (node).
 
-* **LIMS-HPC**: 132085396k or ~128 GigaBytes
-* **MERRI**: 49413840k or ~48 GigaBytes
 * **BARCOO**: 65942760k or ~64 GigaBytes
+* **SNOWY**: 132035040k or ~128 GigaBytes
+* **LIMS-HPC**: 132085396k or ~128 GigaBytes
 
 To transfer from kB to MB you divide by 1024 and MB to GB by 1024 again.
 
@@ -1261,13 +1347,13 @@ Show \showable{Answer}{answer}
 
 \showable{Hint}{hint}
 
-Its not PID but from time to time it might be ordered sequentially.
+It's not PID but from time to time it might be ordered sequentially.
 
 \endshowable
 
 Show \showable{Answer}{answer}
 
-**Answer**: *%CPU* which gives you an indication of how much CPU time each process uses
+**Answer**: *%CPU* which gives you an indication of how much CPU time each process uses and sorted high-to-low.
 
 \endshowable
 
@@ -1289,7 +1375,7 @@ Show \showable{Answer}{answer}
 **Answer**: *%CPU* column gives you an indication of how much this process uses of 1 CPU Core, where as the system-wide values at the top 
 are exactly that, how much the entire system is utilised.  i.e. if you could see all processes in *top* (excluding round errors) 
 they would add up 100% x the number of cpu cores available; on LIMS-HPC this would be 0-1600% in the individual processes and 0-100% 
-on the system-wide section.
+on the system-wide section.  BARCOO it is 0-2400% and SNOWY it is 0-3200% for individual processes.
 
 \endshowable
 
@@ -1318,7 +1404,7 @@ Show \showable{Answer}{answer}
 
 **Can you think of a reason that this might be useful?**
 
-Your program might be using a lot of memory and you want to know how much, by sorting by memory will cause your program to stay at the top.
+Your program might be using a lot of memory and you want to know how much; by sorting by memory will cause your program to stay at the top.
 
 \endshowable
 
@@ -1387,7 +1473,7 @@ to quickly identify yours.
 
 
 
-
+\if{HPC_SHORTHOST == lims-hpc}
 
 ####LIMS-HPC Specific
 
@@ -1431,7 +1517,7 @@ You can either:
 
 \showable{Hint}{hint}
 
-Its easiest to think in reverse (i.e. What is not being used?)
+It's easiest to think in reverse (i.e. What is not being used?)
 
 \endshowable
 
@@ -1441,6 +1527,7 @@ You have to estimate system idle at the point on the graph indicating 12:00 (yes
 
 \endshowable
 
+\endif
 
 
 
@@ -1459,6 +1546,8 @@ the earlier topics if you have forgotten how to do these tasks.
 * Submit job
 * Monitor job
 
+\if{HPC_SHORTHOST == lims-hpc}
+
 <div class="info">
 <b>NOTE (for later)</b>: to complete this topic from your regular LIMS-HPC account you will need to:
 <ul>
@@ -1470,6 +1559,7 @@ the earlier topics if you have forgotten how to do these tasks.
 </ul>
 </div>
 
+\endif
 
 
 ### Task 1: Write a job script
@@ -1480,7 +1570,7 @@ Write a job script that requests the following resources:
 	* where INITIALS is replaced with your initials.  e.g. for me it would be monAR.slurm
 * **Tasks**: 1 
 * **CPUs**: 1
-* **Partition**: training 
+* **Partition**: \env{HPC_TRAINING_PARTITON} 
 * **Time**: 5 mins 
 * **Memory**: 1 GB (remember to specify it in MB)
 
@@ -1490,7 +1580,7 @@ Write a job script that requests the following resources:
 
 Edit your job script so that it: 
 
-* Loads the training module
+* Loads the *\env{HPC_TRAINING_MODULE}* module
 * Runs the *fakejob* command with your name as the first parameter
 
 <div class="info">
@@ -1511,9 +1601,11 @@ Edit your job script so that it:
 ### Task 4: Monitor the job
 
 Use the *top* command to check how much CPU and Memory the job is using.  Given that SLURM is running the job on your behalf on one of the compute 
-nodes, *top* wont be able to see the job.  To be able to use top, you will first need to login to the compute node the is running your job.
+nodes, *top* won't be able to see the job.  To be able to use top, you will first need to login to the compute node that is running your job.
 
 To login:
+
+\if{HPC_HOSTSHORT == lims-hpc}
 
 ```sh
 $ ssh lims-hpc-X
@@ -1539,12 +1631,42 @@ Changes to:
 [10:06:05] USERNAME@lims-hpc-1 ~ $
 ```
 
-Once logged in to the relevent compute node you can run *top* to view you job.  Remember the *u* and *c* options we learnt earlier; they will be helpful 
+\endif
+
+
+
+\if{HPC_HOSTSHORT != lims-hpc}
+
+```sh
+$ ssh barcooXXX
+```
+
+Where XXX is the actual node number you were allocated (See task 3.4).
+
+You are now connected from your computer to lims-hpc-m which is connected to lims-hpc-X.
+
+```text
++---------------+            +------------+            +------------+
+| YOUR COMPUTER | -- SSH --> |  BARCOO    | -- SSH --> | BARCOOXXX  |
++---------------+            +------------+            +------------+
+```
+
+You can tell which node you are on by the text in the prompt
+
+```sh
+[USERNAME@barcoo USERNAME]$
+
+Changes to:
+
+[USERNAME@barcooXXX USERNAME]$
+```
+
+\endif
+
+Once logged in to the relevent compute node you can run *top* to view your job.  Remember the *u* and *c* options we learnt earlier; they will be helpful 
 here when everyone is running the same jobs.
 
  
-
-
 
 
 
@@ -1561,7 +1683,8 @@ It should vary (within the limits you set in the job script)
 
 Show \showable{Answer}{answer}
 
-The *fakejob* program should vary its CPU usage between 50 and 100% CPU and 500 and 1000MB of memory (on lims-hpc-[m,2-5] this will equate to 0.4 to 0.8%)
+The *fakejob* program should vary its CPU usage between 50 and 100% CPU and 500 and 1000MB of memory.  The percentage that it shows is based on the total 
+memory of the node that runs your job; check Question 4.2 to remember how to find the total memory.
 
 \endshowable
 
