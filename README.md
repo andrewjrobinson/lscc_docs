@@ -18,6 +18,10 @@ Once you have mkdocs installed (and in your PATH) then you can preview the websi
 following command in the top directory of this repository:
 
 ```
+# load the vlsci settings for some workshops
+source enviro/vlsci.sh
+
+# run preview webserver
 mkdocs serve
 ```
 
@@ -35,6 +39,10 @@ MkDocs will automatically try to update the site if you edit the documentation p
 You can build the site using the command:
 
 ```
+# load the vlsci settings for some workshops
+source enviro/vlsci.sh
+
+# buld html pages
 mkdocs build
 ```
 
