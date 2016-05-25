@@ -47,7 +47,7 @@ sometimes a *hint* (or two) and finishes with the suggested *answer*.
 
 An example question looks like:
 
-\showable{What is the Answer to Life?}{question}
+\showable{What is the Answer to Life?}{quest}
 
 \endshowable
 
@@ -142,7 +142,7 @@ All the remaining parts assume that you are logged into \env{UNIX_HOSTSHORT}{upp
 
 ### Exercises
 
-\showable+{1.1) When you’ve logged into the Unix server, run the following commands and see what they do:}{question}
+\showable+{1.1) When you’ve logged into the Unix server, run the following commands and see what they do:}{quest}
 
 * *who*
 * *whoami*
@@ -181,7 +181,7 @@ In this topic we will learn how to "look" at the filesystem and further expand o
 Your home directory contains your own private working space.  Your *current working directory* is automatically set 
 to your *home* directory when you log into a Unix computer.
 
-\showable{2.1) Use the *ls* command to list the files in your *home* directory.  How many files are there?}{question}\endshowable
+\showable{2.1) Use the *ls* command to list the files in your *home* directory.  How many files are there?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -207,7 +207,7 @@ where you start when you first login is your *HOME* directory.
 
 The above answer is not quite correct.  There are a number of *hidden* files in your home directory as well.
 
-\showable{2.2) What *flag* might you use to display *all* files with the *ls* command?  How many files are really there?}{question}\endshowable
+\showable{2.2) What *flag* might you use to display *all* files with the *ls* command?  How many files are really there?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -245,7 +245,7 @@ for the current directory and *..* a shortcut for the directory above the curren
 
 ---
 
-\showable{2.3) What is the full path name of your *home* directory?}{question}\endshowable
+\showable{2.3) What is the full path name of your *home* directory?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -284,7 +284,7 @@ echo $HOME
 
 ---
 
-\showable{2.4) Run *ls* using the long flag (*-l*), how did the output change?}{question}\endshowable
+\showable{2.4) Run *ls* using the long flag (*-l*), how did the output change?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -333,7 +333,7 @@ Where:
 
 ---
 
-\showable{2.5) What type of file is *exp01* and *muscle.fq*?}{question}\endshowable
+\showable{2.5) What type of file is *exp01* and *muscle.fq*?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -353,7 +353,7 @@ Check the output from the *ls -l*.
 ---
 
 
-\showable{2.6) Who has permission to *read*, *write* and *execute* your *home* directory?}{question}\endshowable
+\showable{2.6) Who has permission to *read*, *write* and *execute* your *home* directory?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -457,7 +457,7 @@ occurance of <em>hello</em> etc.</p>
 
 ---
 
-\showable{2.7) Use the *man* command to find out what the *-h* flag does for *ls*}{question}\endshowable
+\showable{2.7) Use the *man* command to find out what the *-h* flag does for *ls*}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -491,7 +491,7 @@ $ man ls
 
 ---
 
-\showable{2.8) Use the *-h*, how did the output change of *muscle.fq*?}{question}\endshowable
+\showable{2.8) Use the *-h*, how did the output change of *muscle.fq*?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -533,7 +533,7 @@ In this topic we will learn how to move around the filesystem and see what is th
 
 **Relevant commands**: *pwd*, *cd*, *ls*, *file*
 
-\showable{3.1) Print the value of your current working directory.}{question}\endshowable
+\showable{3.1) Print the value of your current working directory.}{quest}\endshowable
 
 \showable{Answer}{answer}
 
@@ -549,7 +549,7 @@ $ pwd
 ---
 
 \showable{3.2) List the contents of the root directory, called '*/*' (forward 
-slash).}{question}\endshowable
+slash).}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -576,7 +576,7 @@ other than your current working directory.
 ---
 
 \showable{3.3) Use the *cd* command to change your working directory to the root directory.  Did your prompt 
-change?}{question}\endshowable
+change?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -611,7 +611,7 @@ such command.  However, it will get grumpy if something went wrong by way of an 
 
 ---
 
-\showable{3.4) List the contents of the CWD and verify it matches the list in 3.2}{question}\endshowable
+\showable{3.4) List the contents of the CWD and verify it matches the list in 3.2}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -644,7 +644,7 @@ dev                  lost+found  proc     sys
 ---
 
 \showable{3.5) Change your current working directory back to your home directory. What is the simplest Unix command that 
-will get you back to your home directory from anywhere else in the file system?}{question}\endshowable
+will get you back to your home directory from anywhere else in the file system?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -689,7 +689,7 @@ This is a special-case behaviour which is built into *cd* for convenience.
 
 ---
 
-\showable+{3.6) Change your working directory to the following directory}{question}
+\showable+{3.6) Change your working directory to the following directory}{quest}
 
 *\env{UNIX_TRAINING_FILES_PATH}*
 
@@ -703,7 +703,7 @@ This is a special-case behaviour which is built into *cd* for convenience.
 
 ---
 
-\showable{3.7) List the contents of that directory. How many files does it contain?}{question}\endshowable
+\showable{3.7) List the contents of that directory. How many files does it contain?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -726,7 +726,7 @@ expectations.txt  hello.c  hi  jude.txt  moby.txt  sample_1.fastq  sleepy
 
 ---
 
-\showable{3.8) What kind of *file* is}{question} *\env{UNIX_TRAINING_FILES_PATH}/sleepy*?\endshowable
+\showable{3.8) What kind of *file* is}{quest} *\env{UNIX_TRAINING_FILES_PATH}/sleepy*?\endshowable
 
 \showable{Hint}{hint}
 
@@ -774,7 +774,7 @@ man file
 
 ---
 
-\showable{3.9) What kind of *file* is }{question} *\env{UNIX_TRAINING_FILES_PATH}/hi*?\endshowable
+\showable{3.9) What kind of *file* is }{quest} *\env{UNIX_TRAINING_FILES_PATH}/hi*?\endshowable
 
 \showable{Hint}{hint}
 
@@ -801,7 +801,7 @@ program (raw instructions that the computer can execute directly).
 
 ---
 
-\showable{3.10) What are the file permissions of the following file and what do they mean?}{question} *\env{UNIX_TRAINING_FILES_PATH}/sleepy*
+\showable{3.10) What are the file permissions of the following file and what do they mean?}{quest} *\env{UNIX_TRAINING_FILES_PATH}/sleepy*
 \endshowable
 
 \showable{Hint}{hint}
@@ -832,7 +832,7 @@ future reference: links are created with the *ln* command.
 
 ---
 
-\showable{3.11) Change your working directory back to your home directory ready for the next topic.}{question}\endshowable
+\showable{3.11) Change your working directory back to your home directory ready for the next topic.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -874,7 +874,7 @@ command find out what they do, in particular the NAME, SYNOPSIS and DESCRIPTION 
 ---
 
 
-\showable{4.1) In your home directory make a sub-directory called test.}{question}\endshowable
+\showable{4.1) In your home directory make a sub-directory called test.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -909,7 +909,7 @@ exp01  file01  muscle.fq  test
 
 ---
 
-\showable{4.2) Copy all the files from the following directory into the newly created test directory.}{question} *\env{UNIX_TRAINING_FILES_PATH}*\endshowable
+\showable{4.2) Copy all the files from the following directory into the newly created test directory.}{quest} *\env{UNIX_TRAINING_FILES_PATH}*\endshowable
 
 \showable{Hint}{hint}
 
@@ -976,7 +976,7 @@ Remember that ~ is a shortcut reference to your home directory.
 **Note**: This exercise assumes that the copy command from the previous exercise was successful. 
 
 \showable{4.3) Check that the file size of *expectations.txt* is the same in both the directory that you copied 
-it from and the directory that you copied it to.}{question}\endshowable
+it from and the directory that you copied it to.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1026,7 +1026,7 @@ etcetera.
 **Note**: this exercise assumes your working directory is *~/test*; if not run *cd ~/test*
 
 \showable{4.4) Check that the contents of expectations.txt are the same in both the directory that you copied 
-it from and the directory that you copied it to.}{question}\endshowable
+it from and the directory that you copied it to.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1056,7 +1056,7 @@ If the two files are identical the *diff* command will NOT produce any output)
 
 ---
 
-\showable{4.5) How many lines, words and characters are in expectations.txt?}{question}\endshowable
+\showable{4.5) How many lines, words and characters are in expectations.txt?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1097,7 +1097,7 @@ $ wc -c expectations.txt
 ---
 
 \showable{4.6) Open *~/test/expectations.txt* in the *nano* text editor, delete the first line of text, and 
-save your changes to the file. Exit *nano*.}{question}\endshowable
+save your changes to the file. Exit *nano*.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1129,7 +1129,7 @@ editors exist such as *vim* and *emacs*, however they take a substantial amount 
 
 \showable{4.7) Did the changes you made to *~/test/expectations.txt* have any effect on 
 */home/group/common/training/Intro_to_Unix/expectations.txt*? How can you tell if two files are the 
-same or different in their contents?}{question}\endshowable
+same or different in their contents?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1159,7 +1159,7 @@ You could also use *ls* to check that the files have different sizes.
 
 ---
 
-\showable{4.8) In your *test* subdirectory, rename *expectations.txt* to *foo.txt*.}{question}\endshowable
+\showable{4.8) In your *test* subdirectory, rename *expectations.txt* to *foo.txt*.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1189,7 +1189,7 @@ foo.txt  hello.c  hi  jude.txt  moby.txt  sample_1.fastq  sleepy
 
 ---
 
-\showable{4.9) Rename foo.txt back to expectations.txt.}{question}\endshowable
+\showable{4.9) Rename foo.txt back to expectations.txt.}{quest}\endshowable
 
 \showable{Answer}{answer}
 
@@ -1207,7 +1207,7 @@ Use *ls* to check that the file is in fact renamed.
 
 ---
 
-\showable{4.10) Remove the file *expectations.txt* from your *test* directory.}{question}\endshowable
+\showable{4.10) Remove the file *expectations.txt* from your *test* directory.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1235,7 +1235,7 @@ hello.c  hi  jude.txt  moby.txt  sample_1.fastq  sleepy
 
 ---
 
-\showable{4.11) Remove the entire *test* directory and all the files within it.}{question}\endshowable
+\showable{4.11) Remove the entire *test* directory and all the files within it.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1280,7 +1280,7 @@ in the wrong location! Now is a good moment to pause and think about file backup
 ---
 
 \showable{4.12) Recreate the test directory in your home directory and copy all the files from 
-*/home/group/common/training/Intro_to_Unix/* back into the test directory.}{question}\endshowable
+*/home/group/common/training/Intro_to_Unix/* back into the test directory.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1303,7 +1303,7 @@ $ cp /home/group/common/training/Intro_to_Unix/* test
 ---
 
 \showable{4.13) Change directories to *~/test* and use the *cat* command to display the entire contents 
-of the file *hello.c*}{question}\endshowable
+of the file *hello.c*}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1335,7 +1335,7 @@ Hello World
 
 ---
 
-\showable{4.14) Use the *head* command to view the first *20* lines of the file *sample_1.fastq*}{question}\endshowable
+\showable{4.14) Use the *head* command to view the first *20* lines of the file *sample_1.fastq*}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1379,7 +1379,7 @@ abaabaa`aaaaaaa^ba_]]aaa^aaaaa_^][aa
 
 ---
 
-\showable{4.15) Use the *tail* command to view the last *8* lines of the file *sample_1.fastq*}{question}\endshowable
+\showable{4.15) Use the *tail* command to view the last *8* lines of the file *sample_1.fastq*}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1406,7 +1406,7 @@ CTGATGCCGAGGCACGCCGTTAGGCGCGTGCTGCAG
 ---
 
 \showable{4.16) Use the *grep* command to find out all the lines in *moby.txt* that contain the word 
-"Ahab"}{question}\endshowable
+"Ahab"}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1452,7 +1452,7 @@ which shows that there are *491* lines in *moby.txt* that contain the word Ahab.
 
 \showable{4.17) Use the *grep* command to find out all the lines in *expectations.txt* that contain the 
 word "the" with a case insensitive search (it should count "the" "The" "THE" "tHe" etcetera)
-.}{question}\endshowable
+.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1497,7 +1497,7 @@ $ grep -i the expectations.txt  | wc -l
 ---
 
 \showable{4.18) Use the *gzip* command to compress the file *sample_1.fastq*. Use *gunzip* to decompress it 
-back to the original contents.}{question}\endshowable
+back to the original contents.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1552,7 +1552,7 @@ the power of Unix.  I say *start* because this is only the "tip of the iceberg".
 
 
 
-\showable{5.1) How many *reads* are contained in the file *sample_1.fastq*?}{question}\endshowable
+\showable{5.1) How many *reads* are contained in the file *sample_1.fastq*?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1597,7 +1597,7 @@ programming language (such as Python etcetera).
 
 ---
 
-\showable{5.2) How many reads in *sample_1.fastq* contain the sequence *GATTACA*?}{question}\endshowable
+\showable{5.2) How many reads in *sample_1.fastq* contain the sequence *GATTACA*?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1623,7 +1623,7 @@ the *-i* (ignore case option for grep).
 
 ---
 
-\showable{5.3) On what line numbers do the sequences containing *GATTACA* occur?}{question}\endshowable
+\showable{5.3) On what line numbers do the sequences containing *GATTACA* occur?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1690,7 +1690,7 @@ $ grep -n GATTACA sample_1.fastq | cut -d: -f 1
 ---
 
 \showable{5.4) Use the *nl* command to print each line of *sample_1.fastq* with its corresponding line 
-number at the beginning.}{question}\endshowable
+number at the beginning.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1725,7 +1725,7 @@ If you get tired of looking at the output you can kill the command with *control
 the first *20* lines of *sample_1.fastq.nl* with the *head* command. Use the *less* command to 
 interactively view the contents of *sample_1.fastq.nl* (use the arrow keys to navigate up and down, 
 *q* to quit and '*/*' to search). Use the search facility in less to find occurrences of 
-*GATTACA*.}{question}\endshowable
+*GATTACA*.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1777,7 +1777,7 @@ $ less sample_1.fastq.nl
 \showable+{5.6) The four-lines-per-read format of FASTQ is cumbersome to deal with. Often it would be 
 preferable if we could convert it to tab-separated-value (TSV) format, such that each read appears 
 on a single line with each of its fields separated by tabs. Use the following command to convert 
-sample_1.fastq.nl into TSV format:}{question}
+sample_1.fastq.nl into TSV format:}{quest}
 
 ```sh
 $ cat sample_1.fastq | paste - - - - > sample_1.tsv
@@ -1798,7 +1798,7 @@ which causes it to join consecutive groups of 4 lines from the file into one lin
 
 ---
 
-\showable+{5.7) Do you expect the output of the following command to produce the same output as above? and why?}{question}
+\showable+{5.7) Do you expect the output of the following command to produce the same output as above? and why?}{quest}
 
 ```sh
 $ paste sample_1.fastq sample_1.fastq sample_1.fastq sample_1.fastq > sample_1b.tsv
@@ -1828,7 +1828,7 @@ side point.
 ---
 
 \showable{5.8) Check that *sample_1.tsv* has the correct number of lines. Use the *head* command to view 
-the first *20* lines of the file.}{question}\endshowable
+the first *20* lines of the file.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1857,7 +1857,7 @@ $ head -20 sample_1.tsv
 ---
 
 \showable{5.9) Use the *cut* command to print out the second column of *sample_1.tsv*. Redirect the 
-output to a file called *sample_1.dna.txt*.}{question}\endshowable
+output to a file called *sample_1.dna.txt*.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1883,7 +1883,7 @@ Check that the output file looks reasonable using *head* or *less*.
 
 \showable{5.10) Use the *sort* command to sort the lines of *sample_1.dna.txt* and redirect the output to 
 *sample_1.dna.sorted.txt*. Use *head* to look at the first few lines of the output file. You should 
-see a lot of repeated sequences of As.}{question}\endshowable
+see a lot of repeated sequences of As.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1906,7 +1906,7 @@ file.
 
 \showable{5.11) Use the *uniq* command to remove duplicate consecutive lines from *sample_1.dna.sorted.txt*, 
 redirect the result to *sample_1.dna.uniq.txt*. Compare the number of lines in sample1_dna.txt to 
-the number of lines in *sample_1.dna.uniq.txt*.}{question}\endshowable
+the number of lines in *sample_1.dna.uniq.txt*.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1938,7 +1938,7 @@ removed.
 ---
 
 \showable{5.12) Can you modify the command from above to produce *only* those sequences of DNA which were 
-duplicated in *sample_1.dna.sorted.txt*?}{question}\endshowable
+duplicated in *sample_1.dna.sorted.txt*?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1965,7 +1965,7 @@ $ uniq -d sample_1.dna.sorted.txt > sample_1.dna.dup.txt
 ---
 
 \showable{5.13) Write a *shell pipeline* which will print the number of duplicated DNA sequences in 
-sample_1.fastq.}{question}\endshowable
+sample_1.fastq.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1997,7 +1997,7 @@ The output file should have *56079* lines.
 ---
 
 \showable{5.14) (Advanced) Write a shell script which will print the number of duplicated DNA sequences 
-in sample_1.fastq.}{question}\endshowable
+in sample_1.fastq.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -2043,7 +2043,7 @@ If all goes well the script should behave in exactly the same way as the answer 
 ---
 
 \showable{5.15) (Advanced) Modify your shell script so that it accepts the name of the input FASTQ file 
-as a command line parameter.}{question}\endshowable
+as a command line parameter.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -2130,7 +2130,7 @@ provide an *exit ..* line then it automatically returns a 0 for you.</div>
 ---
 
 \showable{5.16) (Advanced) Modify your shell script so that it accepts zero or more FASTQ files on the 
-command line argument and outputs the number of duplicated DNA sequences in each file.}{question}\endshowable
+command line argument and outputs the number of duplicated DNA sequences in each file.}{quest}\endshowable
 
 \showable{Answer}{answer}
 

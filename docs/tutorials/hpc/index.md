@@ -49,7 +49,7 @@ sometimes a *hint* (or two) and finishes with the suggested *answer*.
 
 An example question looks like:
 
-\showable{What is the Answer to Life?}{question}
+\showable{What is the Answer to Life?}{quest}
 
 \endif
 
@@ -145,7 +145,7 @@ An HPC (short for ‘High Performance Computer’) is simply a collection of Ser
 
 ### Exercises
 
-\showable{1.1) What is the contact email for your HPC's System Administrator?}{question}
+\showable{1.1) What is the contact email for your HPC's System Administrator?}{quest}
 
 \endshowable
 
@@ -168,7 +168,7 @@ Depending on which computer you are working:
 
 ---------------
 
-\showable{1.2) Run the *sinfo* command.  How many nodes are there in this hpc?}{question}
+\showable{1.2) Run the *sinfo* command.  How many nodes are there in this hpc?}{quest}
 
 \endshowable
 
@@ -247,7 +247,7 @@ This topic uses the *man* and *module* commands heavily
 
 ### Exercises
 
-\showable{2.1) What happens if you run the *module* command without any options / arguments?}{question}
+\showable{2.1) What happens if you run the *module* command without any options / arguments?}{quest}
 
 \endshowable
 
@@ -309,7 +309,7 @@ Switches:
 
 ---------------
 
-\showable{2.2) How do you find a list of *available* software?}{question}
+\showable{2.2) How do you find a list of *available* software?}{quest}
 
 \endshowable
 
@@ -353,7 +353,7 @@ are the science software; before this are a few built-in ones that you can ignor
 
 ---------------
 
-\showable{2.3) How many modules are there starting with ‘*f*’?}{question}
+\showable{2.3) How many modules are there starting with ‘*f*’?}{quest}
 
 \endshowable
 
@@ -427,7 +427,7 @@ the logical *output* stream.
 
 ---------------
 
-\showable{2.4) Run the *pear* command (without loading it), does it work?}{question}
+\showable{2.4) Run the *pear* command (without loading it), does it work?}{quest}
 
 \endshowable
 
@@ -452,7 +452,7 @@ The error you see is from BASH, it is complaining that it doesn't know anything 
 
 ---------------
 
-\showable{2.5) How would we *load* the *pear* module?}{question}
+\showable{2.5) How would we *load* the *pear* module?}{quest}
 
 \endshowable
 
@@ -486,7 +486,7 @@ of the software.</div>
 
 ---------------
 
-\showable{2.6) Now it's *load*ed, run pear again, what does it do?}{question}\endshowable
+\showable{2.6) Now it's *load*ed, run pear again, what does it do?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -518,7 +518,7 @@ Zhang et al (2014) Bioinformatics 30(5): 614-620 | doi:10.1093/bioinformatics/bt
 
 ---------------
 
-\showable{2.7) *List* all the loaded modules. How many are there? Where did all the others come from?}{question}\endshowable
+\showable{2.7) *List* all the loaded modules. How many are there? Where did all the others come from?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -551,7 +551,7 @@ automatically load some modules for you when you login.
 
 ---------------
 
-\showable{2.8) How do you undo the loading of the *pear* module?  List the loaded modules again, did they all disappear?}{question}\endshowable
+\showable{2.8) How do you undo the loading of the *pear* module?  List the loaded modules again, did they all disappear?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -578,7 +578,7 @@ needed or not so we will need to do it manually (or see next question)
 
 ---------------
 
-\showable{2.9) How do you clear ALL loaded modules?}{question}
+\showable{2.9) How do you clear ALL loaded modules?}{quest}
 
 \endshowable
 
@@ -627,7 +627,7 @@ The following questions use the *moduleinfo* command; this is only available on 
 another HPC then you will need to skip ahead to topic 3. 
 
 
-\showable{2.10) What does the *moduleinfo* command do?}{question}\endshowable
+\showable{2.10) What does the *moduleinfo* command do?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -650,7 +650,7 @@ moduleinfo: support application for environment modules to provide
 
 ---------------
 
-\showable{2.11) Find a *description* of the *biostreamtools* module}{question}\endshowable
+\showable{2.11) Find a *description* of the *biostreamtools* module}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -684,7 +684,7 @@ biostreamtools-gcc/0.4.0: A collection of fast generic bioinformatics
 
 ---------------
 
-\showable{2.12) How would you *cite* all currently loaded modules?}{question}\endshowable
+\showable{2.12) How would you *cite* all currently loaded modules?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -724,7 +724,7 @@ pear-gcc/0.9.4:           J. Zhang, K. Kobert, T. Flouri, A. Stamatakis.
 
 ---------------
 
-\showable{2.13) The malt module requires a special licence, how can you find out details of this?}{question}\endshowable
+\showable{2.13) The malt module requires a special licence, how can you find out details of this?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -816,7 +816,7 @@ is called the output file.
 
 **Useful Commands**: *man, sinfo, cat, sbatch, squeue, cp, module, prime*
 
-\showable{3.1) Which nodes could a ‘\env[HPC_DEF_PARTITION]’ job go on?}{question}\endshowable
+\showable{3.1) Which nodes could a ‘\env[HPC_DEF_PARTITION]’ job go on?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -865,7 +865,7 @@ than one line with *\env{HPC_DEF_PARTITION}* in the partition column.  It lists 
 
 ---------------
 
-\showable{3.2) What about an ‘\env[HPC_OTH_PARTITION]’ job?}{question}\endshowable
+\showable{3.2) What about an ‘\env[HPC_OTH_PARTITION]’ job?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -886,7 +886,7 @@ This is dependant on what the HPC Sys Admin gave us.  You are probably correct b
 
 Use the *cat* command to view the contents of *task01*, *task02* and *task03* job script
 
-\showable{3.3) How many *cpu cores* will each ask for?}{question}\endshowable
+\showable{3.3) How many *cpu cores* will each ask for?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -921,7 +921,7 @@ However, since we know that all nodes on \env{HPC_HOSTSHORT}{upper} have 16, we 
 
 ---------------
 
-\showable{3.4) What about total memory?}{question}\endshowable
+\showable{3.4) What about total memory?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -974,7 +974,7 @@ not actually allocate any of it to you so your job will get terminated once it t
 
 ---------------
 
-\showable{3.5) How long can each run for?}{question}\endshowable
+\showable{3.5) How long can each run for?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -997,7 +997,7 @@ The *--time* option is what tells slurm how long your job will run for.
 
 ---------------
 
-\showable{3.6) Is this maximum, minimum or both runtime?}{question}\endshowable
+\showable{3.6) Is this maximum, minimum or both runtime?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1018,7 +1018,7 @@ time.  If you think your job may not complete in time you can ask the system adm
 
 ---------------
 
-\showable+{3.7) Calculate the *--time* specification for the following runtimes:}{question}
+\showable+{3.7) Calculate the *--time* specification for the following runtimes:}{quest}
 
 1. <span class="fix150">1h30m:</span><span class="fix60">--time=</span><span class="answer100"></span>
 2. <span class="fix150">1m20s:</span><span class="fix60">--time=</span><span class="answer100"></span>
@@ -1047,7 +1047,7 @@ Show \showable{Answer}{answer}
 
 ---------------
 
-\showable+{3.8) What do the following --time specifications mean?}{question}
+\showable+{3.8) What do the following --time specifications mean?}{quest}
 
 1. <span class="fix150">--time=12-00:20</span><span class="fix60"></span><span class="answer100"></span>
 2. <span class="fix150">--time=45</span><span class="fix60"></span><span class="answer100"></span>
@@ -1076,7 +1076,7 @@ Now use sbatch to submit the *task01* job:
 
 ---------------
 
-\showable{3.9) What job id was your job given?}{question}\endshowable
+\showable{3.9) What job id was your job given?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1097,7 +1097,7 @@ Submitted batch job 9998
 
 ---------------
 
-\showable{3.10) Which node did your job go on?}{question}\endshowable
+\showable{3.10) Which node did your job go on?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1134,7 +1134,7 @@ $ squeue -u training01
 ### Advanced
 
 \showable{3.11) Make a copy of *task01* and call it *prime_numbers*.  Make it load the training module and use the *prime* command to calculate prime 
-numbers for 20 seconds.}{question}\endshowable
+numbers for 20 seconds.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1172,7 +1172,7 @@ of when this job was run.  If you have one before and after your main program yo
 
 ---------------
 
-\showable{3.12) Submit the job.  What was the *largest* prime number it found in 20 seconds?}{question}\endshowable
+\showable{3.12) Submit the job.  What was the *largest* prime number it found in 20 seconds?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1203,7 +1203,7 @@ Finished at: Fri May  8 16:11:27 AEST 2015
 
 ---------------
 
-\showable+{3.13) Modify your prime_numbers script to notify you via email when it starts and ends.  Submit it again}{question}
+\showable+{3.13) Modify your prime_numbers script to notify you via email when it starts and ends.  Submit it again}{quest}
 
 * **Did it start immediately or have some delay?**
 * **How long did it actually run for?**
@@ -1272,7 +1272,7 @@ in the future.
 
 ###Exercises
 
-\showable{4.1) What does the *top* command show?}{question}\endshowable
+\showable{4.1) What does the *top* command show?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1299,7 +1299,7 @@ DESCRIPTION
 Run the *top* command.  Above the black line it shows some *system-wide statistics* and below are statistics specific to a single 
 process (a.k.a, tasks OR software applications).
 
-\showable{4.2) How much total memory does this HPC (head-node) have?}{question}\endshowable
+\showable{4.2) How much total memory does this HPC (head-node) have?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1321,7 +1321,7 @@ To transfer from kB to MB you divide by 1024 and MB to GB by 1024 again.
 
 ---------------
 
-\showable{4.3) What is the current total CPU usage?}{question}\endshowable
+\showable{4.3) What is the current total CPU usage?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1343,7 +1343,7 @@ Show \showable{Answer}{answer}
 
 ---------------
 
-\showable{4.4) What column does it appear to be sorting the processes by? Is this *low-to-high* OR *high-to-low*?}{question}\endshowable
+\showable{4.4) What column does it appear to be sorting the processes by? Is this *low-to-high* OR *high-to-low*?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1362,7 +1362,7 @@ Show \showable{Answer}{answer}
 Add up the top few CPU usages of processes and compare this to the system-wide CPU usage at that time.  NOTE: you may need to quit 
 *top* (by pressing q) so you can compare before it updates.
 
-\showable{4.5) Why might the numbers disagree?}{question}\endshowable
+\showable{4.5) Why might the numbers disagree?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1381,7 +1381,7 @@ on the system-wide section.  BARCOO it is 0-2400% and SNOWY it is 0-3200% for in
 
 ---------------
 
-\showable+{4.6) What command-line flag instructs *top* to sort results by *%MEM*?}{question}
+\showable+{4.6) What command-line flag instructs *top* to sort results by *%MEM*?}{quest}
 
 Can you think of a reason that this might be useful?
 \endshowable
@@ -1410,7 +1410,7 @@ Your program might be using a lot of memory and you want to know how much; by so
 
 ---------------
 
-\showable{4.7) Run *"top -c"*.  What does it do?  How might this be helpful?}{question}\endshowable
+\showable{4.7) Run *"top -c"*.  What does it do?  How might this be helpful?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1442,7 +1442,7 @@ If *top* is running you can press the *c* key to toggle show/hide complete comma
 
 ---------------
 
-\showable{4.8) How can you get *top* to only show your processes?  Why might this be useful?}{question}\endshowable
+\showable{4.8) How can you get *top* to only show your processes?  Why might this be useful?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1483,7 +1483,7 @@ Open the munin webpage and have a look at the graphs
 
 **Munin**: [http://munin-lims.latrobe.edu.au/lims-hpc.html](http://munin-lims.latrobe.edu.au/lims-hpc.html)
 
-\showable{4.9) What are the graphs showing?}{question}\endshowable
+\showable{4.9) What are the graphs showing?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1499,7 +1499,7 @@ Show \showable{Answer}{answer}
 
 ---------------
 
-\showable{4.10) How much is the Compute Node 5 being used currently?}{question}\endshowable
+\showable{4.10) How much is the Compute Node 5 being used currently?}{quest}\endshowable
 
 Show \showable{Answer}{answer}
 
@@ -1513,7 +1513,7 @@ You can either:
 ---------------
 
 
-\showable{4.11) And at midday yesterday?}{question}\endshowable
+\showable{4.11) And at midday yesterday?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1673,7 +1673,7 @@ here when everyone is running the same jobs.
 ----------------
 
 
-\showable{How does the CPU and Memory usage change over time?}{question}\endshowable
+\showable{How does the CPU and Memory usage change over time?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
