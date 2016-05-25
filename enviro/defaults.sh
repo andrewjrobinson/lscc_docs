@@ -58,5 +58,5 @@ export HPC_TRAINING_MODULE=training-gcc
 # 0 = Provide a separate link to intro
 export HPC_INTRO=1
 
-# Adds a section to the top of the Unix Workshop explaining how the workshop is structured (i.e. questions/answers)
+# Adds a section to the top of the HPC Workshop explaining how the workshop is structured (i.e. questions/answers)
 export HPC_HOWTO=1

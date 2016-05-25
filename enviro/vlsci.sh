@@ -32,6 +32,9 @@ export UNIX_TRAINING_FILES_PATH="/vlsci/TRAINING/shared/Intro_to_Unix"
 # 0 = Provide a separate link to intro
 export UNIX_INTRO=0
 
+# Adds a section to the top of the Unix Workshop explaining how the workshop is structured (i.e. questions/answers)
+export UNIX_HOWTO=0
+
 
 ##################
 ## HPC Workshop ##
@@ -50,4 +53,7 @@ export HPC_OTH_PARTITION=training
 # 1 = Include intro
 # 0 = Provide a separate link to intro
 export HPC_INTRO=0
+
+# Adds a section to the top of the HPC Workshop explaining how the workshop is structured (i.e. questions/answers)
+export HPC_HOWTO=0
 

@@ -842,7 +842,7 @@ Note: the output to the sinfo command will look different depending on which HPC
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 The *sinfo* command will list the *partitions*.  It summaries the nodes by their current status so there may be more 
 than one line with *\env{HPC_DEF_PARTITION}* in the partition column.  It lists the nodes in shorthand i.e. \env{HPC_HOST_PREFIX}[1,3-5] means 
@@ -873,7 +873,7 @@ Use *sinfo* again but look at the *\env[HPC_OTH_PARTITION]* rows
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 **Answer**: \env{HPC_HOST_PREFIX}??
 
@@ -908,7 +908,7 @@ one is a bit tricky as we don't really know until it runs.
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 **Answer**:
 
@@ -940,7 +940,7 @@ For task03, like with the cpus cores question, we get all the memory available o
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 The *--mem-per-cpu* OR *--mem* options are holding the answer to total memory.
 
@@ -983,7 +983,7 @@ Use the *man sbatch* command to look up the time specification.  If you search f
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 The *--time* option is what tells slurm how long your job will run for.
 
@@ -1006,7 +1006,7 @@ Use the *man sbatch* command to look up the time specification.  If you search f
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 This is a maximum time.  Your job may finish early, at which point it hands back the resources for the next job.  However if it 
 tries to run longer the HPC will terminate the job.
@@ -1034,7 +1034,7 @@ Use the *man sbatch* command to look up the time specification.  If you search f
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 
 
@@ -1062,7 +1062,7 @@ Use the *man sbatch* command to look up the time specification.  If you search f
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 1. <span class="fix150">--time=12-00:20</span><span class="fix60">12 days and 20 minutes</span>
 2. <span class="fix150">--time=45</span><span class="fix60">45 minutes</span>
@@ -1084,7 +1084,7 @@ Use the man page for the sbatch command.  The *Synopsis* at the top will give yo
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 ```sh
 $ sbatch task01 
@@ -1105,7 +1105,7 @@ The *squeue* command shows you the currently running jobs.  If it's been longer 
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 Use the *squeue* command to show all jobs.  Search for your *jobid* and look in the *NODELIST* column.
 
@@ -1142,7 +1142,7 @@ You can find the *prime* command in the *training-gcc/1.0* module
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 The key points to change in the task01 script are:
 
@@ -1181,7 +1181,7 @@ The output from the program will provide the results that we are after.  For HPC
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 You should get results similar to below however the actual numbers will vary as amount of computations performed will be affected by 
 the amount of other jobs running on the HPC
@@ -1222,7 +1222,7 @@ Both start with *--mail*
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 ```bash
 #!/bin/bash
@@ -1280,7 +1280,7 @@ When all else fails, try *man*; specifically, the description section
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 ```sh
 $ man top
@@ -1307,7 +1307,7 @@ This would be a system-wide statistic.
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 **Answer**: If you look at the first value on the *Mem* line (line 4) it will tell you the total memory on this computer (node).
 
@@ -1335,7 +1335,7 @@ This might be easier to work out what is not used and subtract it from 100%
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 **Answer**: If you subtract the *%id* value (4th value on Cpu(s) line) from 100% you will get the total CPU Usage
 
@@ -1351,7 +1351,7 @@ It's not PID but from time to time it might be ordered sequentially.
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 **Answer**: *%CPU* which gives you an indication of how much CPU time each process uses and sorted high-to-low.
 
@@ -1370,7 +1370,7 @@ It might have something to do with the total number of CPU Cores on the system.
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 **Answer**: *%CPU* column gives you an indication of how much this process uses of 1 CPU Core, where as the system-wide values at the top 
 are exactly that, how much the entire system is utilised.  i.e. if you could see all processes in *top* (excluding round errors) 
@@ -1398,7 +1398,7 @@ Use the *top* manpage.
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 **Answer**: *top -m* will cause *top* to sort the processes by memory usage.
 
@@ -1426,7 +1426,7 @@ Use the *top* manpage.
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 **What does it do?**  
 It changes the COMMAND column (right most) to show the complete command (or as much that fits) including the flags and options.
@@ -1456,7 +1456,7 @@ Use the *top* manpage.
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 **How can you get *top* to only show your processes?**  
 **Answer 1**: *top -u YOURUSERNAME*  
@@ -1491,7 +1491,7 @@ Take a look at the title on the graphs.  Then the style of graphs.
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 **Answer**: CPU usage (stacked by type of usage)
 
@@ -1501,7 +1501,7 @@ Show \showable{Answer}{answer}
 
 \showable{4.10) How much is the Compute Node 5 being used currently?}{quest}\endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 You can either:
 
@@ -1521,7 +1521,7 @@ It's easiest to think in reverse (i.e. What is not being used?)
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 You have to estimate system idle at the point on the graph indicating 12:00 (yesterday).
 
@@ -1681,7 +1681,7 @@ It should vary (within the limits you set in the job script)
 
 \endshowable
 
-Show \showable{Answer}{answer}
+\showable{Answer}{answer}
 
 The *fakejob* program should vary its CPU usage between 50 and 100% CPU and 500 and 1000MB of memory.  The percentage that it shows is based on the total 
 memory of the node that runs your job; check Question 4.2 to remember how to find the total memory.
