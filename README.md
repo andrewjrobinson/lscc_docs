@@ -42,7 +42,7 @@ You can build the site using the command:
 # load the vlsci settings for some workshops
 source enviro/vlsci.sh
 
-# buld html pages
+# build html pages
 mkdocs build
 ```
 
