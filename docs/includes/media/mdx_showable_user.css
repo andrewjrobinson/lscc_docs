@@ -22,10 +22,10 @@ div.showable-container.answer div.showable-header > span.link-like {color: #2fa4
 div.answer > div.showable-inner {margin-left: 26px;  min-height: 24px; padding-left: 3px; border-left: 1px solid #2fa4e7;}
 div.showable-hidden.answer > div.showable-inner { padding-left: 4px; border-left: 0;}
 
-div.showable-container.info {background: url('https://vlsci.github.io/lscc_docs/includes/media/info-icon.png'); background-repeat: no-repeat; background-size: 24px 24px;}
-div.showable-container.info div.showable-header > span.link-like {color: #2fa4e7;}
-div.info > div.showable-inner {margin-left: 26px;  min-height: 24px; padding-left: 3px; border-left: 1px solid #2fa4e7;}
-div.showable-hidden.info > div.showable-inner { padding-left: 4px; border-left: 0;}
+div.showable-container.information {background: url('https://vlsci.github.io/lscc_docs/includes/media/info-icon.png'); background-repeat: no-repeat; background-size: 24px 24px;}
+div.showable-container.information div.showable-header > span.link-like {color: #2fa4e7;}
+div.information > div.showable-inner {margin-left: 26px;  min-height: 24px; padding-left: 3px; border-left: 1px solid #2fa4e7;}
+div.showable-hidden.information > div.showable-inner { padding-left: 4px; border-left: 0;}
 
 div.showable-container.indent {}
 div.showable-container.indent div.showable-header > span.link-like {color: #2fa4e7;}

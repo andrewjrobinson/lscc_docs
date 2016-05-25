@@ -1,5 +1,5 @@
 
-\showable{Mac OS X / Linux}{indent}
+\showable{Mac OS X / Linux}{information}
 
 Both Mac OS X and Linux come with a version of ssh (called OpenSSH) that can be used from the command line.  To use OpenSSH you must 
 first start a terminal program on your computer.  On OS X the standard terminal is called Terminal, and it is installed by default. 
@@ -29,7 +29,7 @@ Unix commands and thus begin using the remote computer.
 
 \endshowable
 
-\showable{Windows}{indent}
+\showable{Windows}{information}
 
 On Microsoft Windows (Vista, 7, 8) we recommend that you use the PuTTY ssh client.  PuTTY (putty.exe) can be downloaded 
 from this web page:

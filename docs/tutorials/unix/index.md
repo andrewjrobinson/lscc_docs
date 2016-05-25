@@ -25,7 +25,7 @@ Before we commence the hands-on part of this workshop we will first give a short
 The [sides](slides.html) are available if you would like.  Additionally the following reference material is available for later
 use.
 
-\showable{Reference Material}{indent}
+\showable{Reference Material}{information}
 
 {!docs/tutorials/unix/intro.md!}
 
