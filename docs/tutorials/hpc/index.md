@@ -51,7 +51,7 @@ An example question looks like:
 
 \showable{What is the Answer to Life?}{quest}
 
-\endif
+\endshowable
 
 ### Hint
 
