@@ -805,6 +805,8 @@ for the jobs that can be added to them.  e.g. *8hour* will accept jobs less than
 resources that our commands need to run.
 * **Output (or Results) file**: When SLURM runs our batch job it will save the results that would normally be output on the terminal (screen) to a file; this file 
 is called the output file.
+* **Reservation**: much like a reservation for a resturant holds a table for you, the administrator can give you an HPC reservation which holds various resources
+for a period of time exclusively for you. 
 
 
 
@@ -865,6 +867,8 @@ than one line with *\env{HPC_DEF_PARTITION}* in the partition column.  It lists 
 
 ---------------
 
+\if{HPC_OTH_PARTITION}
+
 \showable{3.2) What about an ‘\env[HPC_OTH_PARTITION]’ job?}{quest}\endshowable
 
 \showable{Hint}{hint}
@@ -881,6 +885,13 @@ This is dependant on what the HPC Sys Admin gave us.  You are probably correct b
 
 \endshowable
 
+\endif
+
+\if{!HPC_OTH_PARTITION}
+
+Question 3.2 not possible on \env{HPC_HOSTSHORT}{upper}, skipping it today
+
+\endif
 
 ---------------
 
@@ -1072,6 +1083,26 @@ Use the *man sbatch* command to look up the time specification.  If you search f
 
 ---------------
 
+\if{HPC_RESERVATION_SHOW}
+
+### Reservations
+
+Before we continue, a quick note on reservations.  Reservations are not normally needed however sometimes we will, particularly 
+when the HPC is busy.  To make use of a reservation you need to know its name and provide it with the *--reservation* option
+
+\if{HPC_RESERVATION_NAME}
+
+Today we use the *\env{HPC_RESERVATION_NAME}* reservation so that we have resources available to run our jobs.  Your
+jobs will need to contain the line:
+
+*#SBATCH --reservation=\env{HPC_RESERVATION_NAME}*
+
+\endif
+
+---------------
+
+\endif
+
 Now use sbatch to submit the *task01* job:
 
 ---------------
@@ -1149,11 +1180,13 @@ The key points to change in the task01 script are:
 1. adding the *module load training-gcc/1.0*
 2. replacing the *sleep* (and *echo*) statements with a call to *prime 20*.
 
+\if{!HPC_RESERVATION_NAME}
+
 ```bash
 #!/bin/bash
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=1024
-#SBATCH --partition=training
+#SBATCH --partition=PARTITION
 #SBATCH --time=30:00
 
 module load training-gcc/1.0
@@ -1162,6 +1195,33 @@ echo "Starting at: $(date)"
 prime 20
 echo "Finished at: $(date)"
 ```
+Where *PARTITION* is replaced with *\env{HPC_TRAINING_PARTITON}*
+
+\endif
+
+\if{HPC_RESERVATION_NAME}
+
+```bash
+#!/bin/bash
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=1024
+#SBATCH --partition=PARTITION
+#SBATCH --time=30:00
+#SBATCH --reservation=RESERVATION
+
+module load training-gcc/1.0
+
+echo "Starting at: $(date)"
+prime 20
+echo "Finished at: $(date)"
+```
+
+Where *RESERVATION* is replaced with *\env{HPC_RESERVATION_NAME}* and 
+*PARTITION* is replaced with *\env{HPC_TRAINING_PARTITON}*
+
+\endif
+
+
 <div class="info"><b>Repeatable Science</b>: It's good scientific practice to include the version number of the module when loading it as this will 
 ensure that the same version is loaded next time you run this script which will mean you get the same results.</div>
 <div class="info"><b>Date your work</b>: It's also good practice to include the date command in the output so you have a permanent record 
@@ -1224,11 +1284,13 @@ Both start with *--mail*
 
 \showable{Answer}{answer}
 
+\if{!HPC_RESERVATION_NAME}
+
 ```bash
 #!/bin/bash
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=1024
-#SBATCH --partition=training
+#SBATCH --partition=TRAINING
 #SBATCH --time=30:00
 #SBATCH --mail-user=name@email.address
 #SBATCH --mail-type=ALL
@@ -1239,6 +1301,33 @@ echo "Starting at: $(date)"
 prime 20
 echo "Finished at: $(date)"
 ```
+Where *PARTITION* is replaced with *\env{HPC_TRAINING_PARTITON}*
+
+\endif
+
+\if{HPC_RESERVATION_NAME}
+
+```bash
+#!/bin/bash
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=1024
+#SBATCH --partition=TRAINING
+#SBATCH --time=30:00
+#SBATCH --reservation=RESERVATION
+#SBATCH --mail-user=name@email.address
+#SBATCH --mail-type=ALL
+
+module load training/1.0
+
+echo "Starting at: $(date)"
+prime 20
+echo "Finished at: $(date)"
+```
+
+Where *RESERVATION* is replaced with *\env{HPC_RESERVATION_NAME}* and 
+*PARTITION* is replaced with *\env{HPC_TRAINING_PARTITON}*
+
+\endif
 
 **Answers**:
 
@@ -1572,8 +1661,9 @@ Write a job script that requests the following resources:
 * **CPUs**: 1
 * **Partition**: \env{HPC_TRAINING_PARTITON} 
 * **Time**: 5 mins 
-* **Memory**: 1 GB (remember to specify it in MB)
-
+* **Memory**: 1 GB (remember to specify it in MB)\if{HPC_RESERVATION_NAME}
+* **Reservation**: \env{HPC_RESERVATION_NAME}
+\endif
 
 
 ### Task 2: Load/use software module
@@ -1581,7 +1671,10 @@ Write a job script that requests the following resources:
 Edit your job script so that it: 
 
 * Loads the *\env{HPC_TRAINING_MODULE}* module
-* Runs the *fakejob* command with your name as the first parameter
+* Runs the *fakejob* command with your name as the first parameter.  
+    * FYI: *fakejob* is a command that was made to demonstrate what real commands
+      might do in terms of CPU and Memory usage.  It does not perform any useful task; if you must know, it just calculates prime numbers for 5 minutes 
+      and consumes some memory
 
 <div class="info">
 <b>NOTE</b>: remember good practice here and add the date commands to print the date/time in your output.  You can copy them from the *task01* script.
@@ -1590,6 +1683,11 @@ Edit your job script so that it:
 
 
 ### Task 3: Submit job
+
+<div class="warning">
+<b>NOTE</b>: Task 4 is time dependent on task 3; you need to do it within 2 or 3 minutes of running step 3.1 so it might be a good idea to
+read ahead before hand.  Don't stress if you don't complete it in time, you can simply run 3.1 again.
+</div>
 
 1. Use *sbatch* to submit the job to the HPC.
 2. Note down the job id it was given (for later).
@@ -1684,7 +1782,7 @@ It should vary (within the limits you set in the job script)
 \showable{Answer}{answer}
 
 The *fakejob* program should vary its CPU usage between 50 and 100% CPU and 500 and 1000MB of memory.  The percentage that it shows is based on the total 
-memory of the node that runs your job; check Question 4.2 to remember how to find the total memory.
+memory of the node that runs your job; check Topic 4, Question 4.2 to remember how to find the total memory.
 
 \endshowable
 

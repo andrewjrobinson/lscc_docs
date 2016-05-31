@@ -46,7 +46,15 @@ export HPC_HOST_PREFIX="${HOSTSHORT}"
 
 # the default partition names
 export HPC_DEF_PARTITION=main
-export HPC_OTH_PARTITION=training
+export HPC_OTH_PARTITION=""
+
+# the partition to use during workshop
+export HPC_TRAINING_PARTITON=main
+export HPC_TRAINING_MODULE=training-gcc/1.0
+
+# show section
+export HPC_RESERVATION_SHOW=1
+export HPC_RESERVATION_NAME="AROBINSON_TRAINING"
 
 # Adds a section to the top of HPC Workshop covering the same topics in the intro presentation.
 # Useful if you want to give the workshop to people outside an inperson environment.

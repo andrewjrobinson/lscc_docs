@@ -52,6 +52,10 @@ export HPC_OTH_PARTITION=training
 export HPC_TRAINING_PARTITON=training
 export HPC_TRAINING_MODULE=training-gcc
 
+# show section
+export HPC_RESERVATION_SHOW=0
+export HPC_RESERVATION_NAME=""
+
 # Adds a section to the top of HPC Workshop covering the same topics in the intro presentation.
 # Useful if you want to give the workshop to people outside an inperson environment.
 # 1 = Include intro
