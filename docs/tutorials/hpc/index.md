@@ -13,7 +13,8 @@ a look at the [Hands-on Unix Workshop](../unix)
 ## Introduction
 
 If you are attending a workshop called "High Performance Computing" then you can skip ahead to 
-[Topic 1](#topic-1-exploring-an-hpc) as it will be covered in the introductory presentation ([slides](slides.html))
+[Topic 1](#topic-1-exploring-an-hpc) as the introduction will be covered in the introductory 
+presentation ([slides](slides.html))
 
 {!docs/tutorials/hpc/intro.md!}
 
@@ -105,7 +106,7 @@ This workshop attempts to cater for two usage styles:
 ### Connecting to HPC
 
 To begin this workshop you will need to connect to an HPC.  Today we will use the \env{HPC_HOSTSHORT}{upper}.  The computer called  
-*\env{HPC_HOSTNAME}* \if{HPC_HOSTSHORT == lims-hpc-m}(m is for master which is another name for head node)\endif is the 
+*\env{HPC_HOSTNAME}* \if{HPC_HOSTSHORT == lims-hpc}(m is for master which is another name for head node)\endif is the 
 one that coordinates all the HPCs tasks.
 
 **Server details**:
@@ -390,7 +391,7 @@ fastStructure-gcc/20150320   freetype-gcc/2.5.3
 fastx_toolkit-gcc/0.0.14
 ```
 
-\if{HPC_HOSTSHORT == lims-hpc-m}
+\if{HPC_HOSTSHORT == lims-hpc}
 
 **Answer**: 9 modules
 
@@ -619,7 +620,7 @@ again.  Do so by running <em>module load vlsci</em></div>
 
 ---------------
 
-\if{HPC_HOSTSHORT == lims-hpc-m}
+\if{HPC_HOSTSHORT == lims-hpc}
 
 **LIMS-HPC Specific**: 
 
@@ -783,7 +784,7 @@ licence for malt.
 ## Topic 3: Job Submission
 
 Up to this point in the workshop (and the previous Unix workshop) we have only used the head-node of the HPC.  While this is ok for small jobs 
-\if{HPC_HOSTSHORT == lims-hpc-m} on small HPCs like LIMS-HPC,\endif it's unworkable for most jobs.  In this topic we will start to learn how to make use of the rest of the HPCs immense compute power
+\if{HPC_HOSTSHORT == lims-hpc} on small HPCs like LIMS-HPC,\endif it's unworkable for most jobs.  In this topic we will start to learn how to make use of the rest of the HPCs immense compute power
 
 ### Background
 
@@ -850,7 +851,7 @@ The *sinfo* command will list the *partitions*.  It summaries the nodes by their
 than one line with *\env{HPC_DEF_PARTITION}* in the partition column.  It lists the nodes in shorthand i.e. \env{HPC_HOST_PREFIX}[1,3-5] means 
 \env{HPC_HOST_PREFIX}1, \env{HPC_HOST_PREFIX}3, \env{HPC_HOST_PREFIX}4, \env{HPC_HOST_PREFIX}5.
 
-\if{HPC_HOSTSHORT == lims-hpc-m}
+\if{HPC_HOSTSHORT == lims-hpc}
 
 **Answer**: lims-hpc-1, lims-hpc-2, lims-hpc-3, lims-hpc-4, lims-hpc-5
 
@@ -965,7 +966,7 @@ not actually allocate any of it to you so your job will get terminated once it t
 
 **Answer**:
 
-\if{HPC_HOSTSHORT == lims-hpc-m}
+\if{HPC_HOSTSHORT == lims-hpc}
 
 * task01: **1024MB** (1GB) i.e. 1024 x 1 x 1
 * task02: **12288MB** (12GB) i.e. 2048 x 3 x 2
@@ -973,7 +974,7 @@ not actually allocate any of it to you so your job will get terminated once it t
 
 \endif
 
-\if{HPC_HOSTSHORT != lims-hpc-m}
+\if{HPC_HOSTSHORT != lims-hpc}
 
 * task01: **1024MB** (1GB) i.e. 1024 x 1 x 1
 * task02: **12288MB** (12GB) i.e. 2048 x 3 x 2
@@ -1562,7 +1563,7 @@ to quickly identify yours.
 
 
 
-\if{HPC_SHORTHOST == lims-hpc}
+\if{HPC_HOSTSHORT == lims-hpc}
 
 ####LIMS-HPC Specific
 
@@ -1635,7 +1636,7 @@ the earlier topics if you have forgotten how to do these tasks.
 * Submit job
 * Monitor job
 
-\if{HPC_SHORTHOST == lims-hpc}
+\if{HPC_HOSTSHORT == lims-hpc}
 
 <div class="info">
 <b>NOTE (for later)</b>: to complete this topic from your regular LIMS-HPC account you will need to:
@@ -1741,7 +1742,7 @@ $ ssh barcooXXX
 
 Where XXX is the actual node number you were allocated (See task 3.4).
 
-You are now connected from your computer to lims-hpc-m which is connected to lims-hpc-X.
+You are now connected from your computer to barcoo which is connected to barcooXXX.
 
 ```text
 +---------------+            +------------+            +------------+

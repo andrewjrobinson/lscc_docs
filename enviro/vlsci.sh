@@ -8,6 +8,7 @@
 HOSTNAME="barcoo.vlsci.unimelb.edu.au"
 HOSTSHORT="barcoo"
 PORT="22"
+USRNAME="trainXX"
 
 #####################
 ## import defaults ##
@@ -16,7 +17,7 @@ source enviro/defaults.sh
 ###################
 ## Unix Workshop ##
 # connection details
-export UNIX_USERNAME="trainXX"
+#export UNIX_USERNAME="trainXX"
 export UNIX_HOMEDIR="/vlsci/TRAINING/trainXX"
 
 # text description of people who use the HPC
@@ -39,7 +40,7 @@ export UNIX_HOWTO=0
 ##################
 ## HPC Workshop ##
 # connection details
-export HPC_USERNAME="${UNIX_USERNAME}"
+#export HPC_USERNAME="${UNIX_USERNAME}"
 
 # the example to use when listing compute node hosts (will be appended with [1-5] etc.)
 export HPC_HOST_PREFIX="${HOSTSHORT}"

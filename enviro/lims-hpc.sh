@@ -27,7 +27,7 @@ export UNIX_TRAINING_FILES_PATH="/home/group/common/training/Intro_to_Unix"
 # useful if you want ot give the workshop to people outside an inperson environment.
 # 1 = Include intro
 # 0 = Provide a separate link to intro
-export UNIX_INTRO=0
+export UNIX_INTRO=1
 
 
 ##################
@@ -44,4 +44,4 @@ export HPC_OTH_PARTITION=8hour
 # Useful if you want to give the workshop to people outside an inperson environment.
 # 1 = Include intro
 # 0 = Provide a separate link to intro
-export HPC_INTRO=0
+export HPC_INTRO=1
