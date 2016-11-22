@@ -37,7 +37,7 @@ export UNIX_HOWTO=1
 export HPC_HOSTNAME=${HOSTNAME:-"MyHPC.myorg.edu.au"}
 export HPC_HOSTSHORT=${HOSTSHORT:-"MyHPC"}
 export HPC_PORT=${PORT:-"22"}
-export HPC_USERNAME=${USERNAME:-"trainingXX"}
+export HPC_USERNAME=${USRNAME:-"trainingXX"}
 export HPC_USERNAME_DESC="(where XX is a two digit number, provided at workshop)"
 export HPC_PASSWORD="(provided at workshop)"
 

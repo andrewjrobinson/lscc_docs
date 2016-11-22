@@ -753,10 +753,23 @@ Bourne-Again shell script text executable
 
 Otherwise specify the full path of sleepy:
 
+\if{HPC_HOSTSHORT == lims-hpc}
+
 ```sh
 $ file /home/group/common/training/Intro_to_Unix/sleepy
 Bourne-Again shell script text executable
 ```
+
+\endif
+
+\if{HPC_HOSTSHORT == barcoo}
+
+```sh
+$ file /vlsci/TRAINING/shared/Intro_to_Unix/sleepy
+Bourne-Again shell script text executable
+```
+
+\endif
 
 **Answer**: Bourne-Again shell script text executable
 
@@ -946,26 +959,58 @@ paths to *cp*. You only need to perform one of these ways, but we show multiple 
 
 **Answer 1**: From your home directory:
 
+\if{HPC_HOSTSHORT == lims-hpc}
+
 ```sh
 $ cp /home/group/common/training/Intro_to_Unix/* test
 ```
+\endif
+
+\if{HPC_HOSTSHORT == barcoo}
+
+```sh
+$ cp /vlsci/TRAINING/shared/Intro_to_Unix/Intro_to_Unix/* test
+```
+\endif
 
 **Answer 2**: Change to the test directory and then copy (assuming you started in your home directory):
+
+\if{HPC_HOSTSHORT == lims-hpc}
 
 ```sh
 $ cd test
 $ cp /home/group/common/training/Intro_to_Unix/* .
 ```
+\endif
+
+\if{HPC_HOSTSHORT == barcoo}
+
+```sh
+$ cd test
+$ cp /vlsci/TRAINING/shared/Intro_to_Unix/* .
+```
+\endif
 
 In the example above the '*.*' (dot) character refers to the current working directory. It should be 
 the test subdirectory of your home directory.
 
-**Answer 3**: Change to the /home/group/common/training/Intro_to_Unix/ directory and then copy:
+**Answer 3**: Change to the \end{UNIX_TRAINING_FILES_PATH} directory and then copy:
+
+\if{HPC_HOSTSHORT == lims-hpc}
 
 ```sh
 cd /home/group/common/training/Intro_to_Unix/
 cp * ~/test
 ```
+\endif
+
+\if{HPC_HOSTSHORT == barcoo}
+
+```sh
+cd /vlsci/TRAINING/shared/Intro_to_Unix/
+cp * ~/test
+```
+\endif
 
 Remember that ~ is a shortcut reference to your home directory.
 
@@ -997,11 +1042,23 @@ Use *ls -l* to check the size of files.
 You could do this in many ways depending on the value of your working directory. We just show one possible 
 way for each file:
 
+\if{HPC_HOSTSHORT == lims-hpc}
+
 ```sh
 $ ls -l /home/group/common/training/Intro_to_Unix/expectations.txt
 
 $ ls -l ~/test/expectations.txt
 ```
+\endif
+
+\if{HPC_HOSTSHORT == barcoo}
+
+```sh
+$ ls -l /vlsci/TRAINING/shared/Intro_to_Unix/expectations.txt
+
+$ ls -l ~/test/expectations.txt
+```
+\endif
 
 From the output of the above commands you should be able to see the size of each file and check that they 
 are the same. 
@@ -1011,10 +1068,22 @@ are the same.
 **Alternate**: Sometimes it is useful to get file sizes reported in more "human friendly" units than bytes. If this is 
 true then try the *-h* option for ls:
 
+\if{HPC_HOSTSHORT == lims-hpc}
+
 ```sh
 $ ls -lh /home/group/common/training/Intro_to_Unix/expectations.txt
 -rw-r--r-- 1 arobinson common 1010K Mar 26  2012 /home/group/common/training/Intro_to_Unix/expectations.txt
 ```
+\endif
+
+\if{HPC_HOSTSHORT == barcoo}
+
+```sh
+$ ls -lh /vlsci/TRAINING/shared/Intro_to_Unix/expectations.txt
+-rw-r--r-- 1 arobinson common 1010K Mar 26  2012 /vlsci/TRAINING/shared/Intro_to_Unix/expectations.txt
+```
+\endif
+
 
 In this case the size is reported in kilobytes as *1010K*. Larger files are reported in megabytes, gigabytes 
 etcetera.
@@ -1044,9 +1113,19 @@ What is the opposite of *same*?
 
 Use the *diff* command to compare the contents of two files.
 
+\if{HPC_HOSTSHORT == lims-hpc}
+
 ```sh
 $ diff /home/group/common/training/Intro_to_Unix/expectations.txt expectations.txt
 ```
+\endif
+
+\if{HPC_HOSTSHORT == barcoo}
+
+```sh
+$ diff /vlsci/TRAINING/shared/Intro_to_Unix/expectations.txt expectations.txt
+```
+\endif
 
 If the two files are identical the *diff* command will NOT produce any output)
 
@@ -1128,7 +1207,7 @@ editors exist such as *vim* and *emacs*, however they take a substantial amount 
 ---
 
 \showable{4.7) Did the changes you made to *~/test/expectations.txt* have any effect on 
-*/home/group/common/training/Intro_to_Unix/expectations.txt*? How can you tell if two files are the 
+* \env[UNIX_TRAINING_FILES_PATH]*? How can you tell if two files are the 
 same or different in their contents?}{quest}\endshowable
 
 \showable{Hint}{hint}
@@ -1148,10 +1227,21 @@ Use *diff*
 Use *diff* to check that the two files are different after you have made the change to the copy of 
 *expectations.txt* in your *~/test* directory.
 
+\if{HPC_HOSTSHORT == lims-hpc}
+
 ```sh
 diff ~/test/expectations.txt \
 /home/group/common/training/Intro_to_Unix/expectations.txt
 ```
+\endif
+
+\if{HPC_HOSTSHORT == barcoo}
+
+```sh
+diff ~/test/expectations.txt \
+/vlsci/TRAINING/shared/Intro_to_Unix/expectations.txt
+```
+\endif
 
 You could also use *ls* to check that the files have different sizes.
 
@@ -1280,7 +1370,7 @@ in the wrong location! Now is a good moment to pause and think about file backup
 ---
 
 \showable{4.12) Recreate the test directory in your home directory and copy all the files from 
-*/home/group/common/training/Intro_to_Unix/* back into the test directory.}{quest}\endshowable
+*\env[UNIX_TRAINING_FILES_PATH]* back into the test directory.}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1292,11 +1382,23 @@ See exercises 4.1 and 4.2
 
 Repeat exercises 4.1 and 4.2.
 
+\if{HPC_HOSTSHORT == lims-hpc}
+
 ```sh
 $ cd ~
 $ mkdir test
 $ cp /home/group/common/training/Intro_to_Unix/* test
 ```
+\endif
+
+\if{HPC_HOSTSHORT == barcoo}
+
+```sh
+$ cd ~
+$ mkdir test
+$ cp /vlsci/TRAINING/shared/Intro_to_Unix/* test
+```
+\endif
 
 \endshowable
 
@@ -1777,7 +1879,7 @@ $ less sample_1.fastq.nl
 \showable+{5.6) The four-lines-per-read format of FASTQ is cumbersome to deal with. Often it would be 
 preferable if we could convert it to tab-separated-value (TSV) format, such that each read appears 
 on a single line with each of its fields separated by tabs. Use the following command to convert 
-sample_1.fastq.nl into TSV format:}{quest}
+sample_1.fastq into TSV format:}{quest}
 
 ```sh
 $ cat sample_1.fastq | paste - - - - > sample_1.tsv
