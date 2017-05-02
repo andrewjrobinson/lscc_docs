@@ -128,7 +128,7 @@ one that coordinates all the HPCs tasks.
 
 ## Topic 1: Exploring an HPC
 
-An HPC (short for ‘High Performance Computer’) is simply a collection of Server Grade computers that work together to solve large problems.
+An HPC (short for 'High Performance Computer') is simply a collection of Server Grade computers that work together to solve large problems.
 
 <img src="media/drawing1.png" title="HPC Structure" alt="HPC Structure" width="245px" />
 
@@ -354,7 +354,7 @@ are the science software; before this are a few built-in ones that you can ignor
 
 ---------------
 
-\showable{2.3) How many modules are there starting with ‘*f*’?}{quest}
+\showable{2.3) How many modules are there starting with '*f*'?}{quest}
 
 \endshowable
 
@@ -819,7 +819,7 @@ for a period of time exclusively for you.
 
 **Useful Commands**: *man, sinfo, cat, sbatch, squeue, cp, module, prime*
 
-\showable{3.1) Which nodes could a ‘\env[HPC_DEF_PARTITION]’ job go on?}{quest}\endshowable
+\showable{3.1) Which nodes could a '\env[HPC_DEF_PARTITION]' job go on?}{quest}\endshowable
 
 \showable{Hint}{hint}
 
@@ -1302,7 +1302,7 @@ echo "Starting at: $(date)"
 prime 20
 echo "Finished at: $(date)"
 ```
-Where *PARTITION* is replaced with *\env{HPC_TRAINING_PARTITON}*
+Where *PARTITION* is replaced with *\env{HPC_TRAINING_PARTITON}* and *name@email.address* by your email address
 
 \endif
 
@@ -1325,8 +1325,7 @@ prime 20
 echo "Finished at: $(date)"
 ```
 
-Where *RESERVATION* is replaced with *\env{HPC_RESERVATION_NAME}* and 
-*PARTITION* is replaced with *\env{HPC_TRAINING_PARTITON}*
+Where *RESERVATION* is replaced with *\env{HPC_RESERVATION_NAME}*, *PARTITION* is replaced with *\env{HPC_TRAINING_PARTITON}* and *name@email.address* by your email address
 
 \endif
 
@@ -1801,14 +1800,14 @@ memory of the node that runs your job; check Topic 4, Question 4.2 to remember h
 Well done, you learnt a lot over the last 5 topics and you should be proud of your achievement; it 
 was a lot to take in.
 
-From here you should be confortable to begin submitting real jobs to the HPC (in your real account, 
+From here you should be comfortable to begin submitting real jobs to the HPC (in your real account, 
 not the training one).
 
 You will no-doubt forget a lot of what you learnt here so I encourage you to save a link to this 
-Workshop for later reference.
+workshop for later reference.
 
-Thank you for your attendance, please don't forget to complete the VLSCI training survey and give it
-back to the Workshop facilitators.
+Thank you for your attendance, please don't forget to complete the training survey and give it
+back to the workshop facilitators.
 
 
 

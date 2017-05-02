@@ -142,7 +142,7 @@ All the remaining parts assume that you are logged into \env{UNIX_HOSTSHORT}{upp
 
 ### Exercises
 
-\showable+{1.1) When you’ve logged into the Unix server, run the following commands and see what they do:}{quest}
+\showable+{1.1) When you've logged into the Unix server, run the following commands and see what they do:}{quest}
 
 * *who*
 * *whoami*
@@ -833,10 +833,10 @@ $ ls -l sleepy
 -rw-r--r-- 1 arobinson common 183 Feb  9 16:36 sleepy
 ```
 
-**Answer**: The Answer is dependent on the computer you are connected too however will follow somthing like above. 
+**Answer**: The Answer is dependent on the computer you are connected too however will follow something like above. 
 We can see that this particular instance of sleepy is owned by the user arobinson, and is part of the common 
 user group. It is 183 bytes in size, and was last modified on the 9th of February at 4:36pm. The file is 
-readable to everyone, and writeable only to arobinson.  The digit '1' between the file permission string and 
+readable to everyone, and write-able only to arobinson.  The digit '1' between the file permission string and 
 the owner indicates that there is one link to the file. The Unix file system allows files to be referred to 
 by multiple "links". When you create a file it is referred to by one link, but you may add others later. For 
 future reference: links are created with the *ln* command.
@@ -2283,14 +2283,14 @@ sample_3.fastq YYYYY
 Well done, you learnt a lot over the last 5 topics and you should be proud of your achievement; it 
 was a lot to take in.
 
-From here you should be confortable around the Unix command line and ready to take on the HPC 
+From here you should be comfortable around the Unix command line and ready to take on the HPC 
 Workshop.
 
 You will no-doubt forget a lot of what you learnt here so I encourage you to save a link to this 
-Workshop for later reference.
+workshop for later reference.
 
-Thank you for your attendance, please don't forget to complete the VLSCI training survey and give it
-back to the Workshop facilitators.
+Thank you for your attendance, please don't forget to complete the training survey and give it
+back to the workshop facilitators.
 
 
 

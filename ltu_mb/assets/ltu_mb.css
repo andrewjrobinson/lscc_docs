@@ -1,0 +1,32 @@
+body {
+  padding-top: 50px;
+}
+div.footer {
+	margin-top: 200px;
+	margin-bottom: 15px;
+}
+div.footer-text {
+	text-align: center;
+	font-style: italic;
+	font-size: 12px;
+	color: grey;
+}
+div.footer-text a {color: grey;}
+
+div.header-icons div {text-align: center;}
+div.header-icons div:first-child {text-align: left;}
+div.header-icons div:last-child {text-align: right;}
+div.header-icons img.ltu {max-height: 85px;}
+
+div.header-icons div.vlsci-logo {position: relative; height: 85px;}
+
+@media(min-width: 768px) {
+	div.header-icons img.vlsci {position: absolute; clip: rect(20px,452px,134px,0px); right: 0px; top: -12px; height: 85px;}
+}
+@media(max-width: 767px) {
+	div.header-icons div.vlsci-logo { height: 85px;}
+	div.header-icons img.vlsci {position: absolute; clip: rect(20px,452px,134px,0px); top: -12px; height: 85px;}
+	div.header-icons div {text-align: left;}
+	div.header-icons div:first-child {text-align: left;}
+	div.header-icons div:last-child {text-align: left;}
+}

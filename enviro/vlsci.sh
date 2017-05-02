@@ -55,7 +55,7 @@ export HPC_TRAINING_MODULE=training-gcc/1.0
 
 # show section
 export HPC_RESERVATION_SHOW=1
-export HPC_RESERVATION_NAME="TRAINING"
+export HPC_RESERVATION_NAME="AROBINSON_TRAINING"
 
 # Adds a section to the top of HPC Workshop covering the same topics in the intro presentation.
 # Useful if you want to give the workshop to people outside an inperson environment.
